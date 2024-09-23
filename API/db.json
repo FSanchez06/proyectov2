@@ -1,0 +1,519 @@
+{
+  "banners": [
+    {
+      "id": "1",
+      "imageUrl": "https://neweraco.vtexassets.com/assets/vtex.file-manager-graphql/images/42fad78c-bdca-4a08-87fd-7c430d774be7___66024df4ff3821c2e5898baf32be5ced.jpg"
+    },
+    {
+      "id": "2",
+      "imageUrl": "https://neweraco.vtexassets.com/assets/vtex.file-manager-graphql/images/49877c05-b780-46e3-b97a-7e7c0cbc7649___f79721ceab5ba5b9b5bcb2add87dbcb5.jpg"
+    },
+    {
+      "id": "3",
+      "imageUrl": "https://neweraco.vtexassets.com/assets/vtex.file-manager-graphql/images/7400e4f7-320d-46fd-af5b-293f12ba56ac___78bc5192c9395c9c8525d6554756efa4.jpg"
+    }
+  ],
+  "sales": [
+    {
+      "id": "1",
+      "imageUrl": "https://newera.com.ar/media/wysiwyg/sliders/newera/Banners-NE-Febrero-02-mobile.jpg"
+    },
+    {
+      "id": "2",
+      "imageUrl": "https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaCO/72772163_91/w=800,h=800,fit=pad"
+    },
+    {
+      "id": "3",
+      "imageUrl": "https://newera.com.ar/media/wysiwyg/sliders/newera/Banners-NE-Febrero-koi-fish-mobile.jpg"
+    }
+  ],
+  "products": [
+    {
+      "_id": "100001",
+      "img": "https://neweraco.vtexassets.com/arquivos/ids/203920/14323033_1.png?v=638612530817100000",
+      "productName": "Gorra Ricardo Luevanos Collection",
+      "price": "100.000",
+      "color": "Beige",
+      "badge": true,
+      "des": "Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la Ricardo Luevanos Collection Con material 100% poliéster Color Beige de Ricardo Luevanos Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.",
+      "id": "cd49"
+    },
+    {
+      "_id": "100002",
+      "img": "https://neweraco.vtexassets.com/arquivos/ids/203322/60565194_5.png?v=638598572582270000",
+      "productName": "Gorra World Series Collection",
+      "price": "120.000",
+      "color": "Verde",
+      "badge": true,
+      "des": "Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la World Series Collection Con 97% algodón Verde de los New York Yankees Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.",
+      "id": "9b04"
+    },
+    {
+      "_id": "100003",
+      "img": "https://neweraco.vtexassets.com/arquivos/ids/203313/60565185_5.png?v=638598572500700000",
+      "productName": "Gorra World Series Collection",
+      "price": "150.000",
+      "color": "Blanco",
+      "badge": true,
+      "des": "Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la World Series Collection Con 97% algodón Blanco de los New York Yankees Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.",
+      "id": "d4f9"
+    },
+    {
+      "_id": "100004",
+      "img": "https://neweraco.vtexassets.com/arquivos/ids/202541/60565494_1.png?v=638598564564230000",
+      "productName": "Gorra Nfl Team Color Collection",
+      "price": "90.000",
+      "color": "Morado",
+      "badge": true,
+      "des": "Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la Nfl Team Color Collection Con 100% algodón Morado de los Minnesota Vikings Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.",
+      "id": "31db"
+    },
+    {
+      "_id": "100005",
+      "img": "https://neweraco.vtexassets.com/arquivos/ids/203909/60565392_1.png?v=638612530750300000",
+      "productName": "Gorra Cord Collection LOW PROFILE",
+      "price": "160.000",
+      "color": "Beige y Negro",
+      "badge": true,
+      "des": "Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la Cord Collection Con 92% algodón de los New York Yankees Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.",
+      "id": "0613"
+    },
+    {
+      "_id": "100006",
+      "img": "https://neweraco.vtexassets.com/arquivos/ids/203933/60593285_1.png?v=638612530879730000",
+      "productName": "Gorra Visa Cash App RB Flawles",
+      "price": "60.000",
+      "color": "Azul",
+      "badge": true,
+      "des": "Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la Flawless Vcarbs Collection Con material 100% Algodón Color Azul de Visa Cash Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.",
+      "id": "25d1"
+    },
+    {
+      "_id": "100007",
+      "img": "https://neweraco.vtexassets.com/arquivos/ids/202465/60565173_1.png?v=638598563769030000",
+      "productName": "Gorra Monochrome Collection",
+      "price": "100.000",
+      "color": "Negro",
+      "badge": true,
+      "des": "Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la Monochrome Collection Con 100% algodón Negro de los New York Yankees Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.",
+      "id": "3cce"
+    },
+    {
+      "_id": "100008",
+      "img": "https://merrellcol.vtexassets.com/arquivos/ids/198789-1200-1800?v=638297278037370000&width=1200&height=1800&aspect=true",
+      "productName": "Gorro M Patch Beanie Color Gris ",
+      "price": "90.000",
+      "color": "Gris",
+      "badge": false,
+      "des": "Le damos la bienvenida al gorro Patch Beanie, tu mejor aliado para protegerte en tus aventuras a bajas temperaturas. Fabricado principalmente en materiales reciclados",
+      "id": "2e50"
+    },
+    {
+      "_id": "100009",
+      "img": "https://merrellcol.vtexassets.com/arquivos/ids/206604-1200-1800?v=638506905133070000&width=1200&height=1800&aspect=true",
+      "productName": "Gorro Cochamo Beanie Unisex-Black",
+      "price": "80.000",
+      "color": "Negro",
+      "badge": false,
+      "des": "Te presentamos nuestro beanie Cochamó, una opción sostenible, cálida y cómoda para mantenerte abrigado con estilo.",
+      "id": "8504"
+    },
+    {
+      "_id": "100010",
+      "img": "https://neweraco.vtexassets.com/arquivos/ids/174401/70358700_1.png?v=638260937337030000",
+      "productName": "Gorra Ac Performance color Negro",
+      "price": "100.000",
+      "color": "Negro",
+      "badge": false,
+      "des": "Completa tu outfit y sube de nivel tu estilo con esta gorra de los Chicago White Sox, Compra ahora tú Gorra Chicago White Sox",
+      "id": "605a"
+    },
+    {
+      "_id": "100011",
+      "img": "https://neweraco.vtexassets.com/arquivos/ids/202414/60565120_1.png?v=638598563337570000",
+      "productName": "Gorra Seasonal Infill Collection",
+      "price": "100.000",
+      "color": "Gris",
+      "badge": false,
+      "des": "Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la Seasonal Infill Collection Con 100% algodón Gris de los Los Angeles Dodgers Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.",
+      "id": "0f74"
+    },
+    {
+      "_id": "100012",
+      "img": "https://neweraco.vtexassets.com/arquivos/ids/200826/60565294_1.png?v=638578704999770000",
+      "productName": "Gorra Ocean Icon Collection",
+      "price": "50.000",
+      "color": "Blanco",
+      "badge": false,
+      "des": "Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la Ocean Icon Collection Con 100% poliéster Reciclado Blanco de los New York Yankees Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.",
+      "id": "fb31"
+    },
+    {
+      "_id": "100013",
+      "img": "https://neweraco.vtexassets.com/arquivos/ids/198515/60553932_1.png?v=638551072538870000",
+      "productName": "Gorra Pinstripe Collection color Gris",
+      "price": "50.000",
+      "color": "Blanco y Negro",
+      "badge": false,
+      "des": "Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la Pinstripe Collection Con Corona y medios 100% poliéster Negro de los New York Yankees",
+      "id": "63ce"
+    },
+    {
+      "_id": "100014",
+      "img": "https://neweraco.vtexassets.com/arquivos/ids/203891/60565346_1.png?v=638612530660370000",
+      "productName": "Gorra Camo Collection Militar",
+      "price": "40.000",
+      "color": "Beige",
+      "badge": false,
+      "des": "Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la Camo Collection Con 100% poliéster Negro de los New York Yankees Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.",
+      "id": "f71f"
+    },
+    {
+      "_id": "100015",
+      "img": "https://neweraco.vtexassets.com/arquivos/ids/202492/60565338_1.png?v=638598564072870000",
+      "productName": "Gorra Washed Collection color Naranja",
+      "price": "40.000",
+      "color": "Naranja",
+      "badge": false,
+      "des": "Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la Washed Collection Con 100% algodón Negro de los New York Yankees Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.",
+      "id": "bc8e"
+    },
+    {
+      "_id": "100016",
+      "img": "https://neweraco.vtexassets.com/arquivos/ids/203341/60565355_5.png?v=638598572842470000",
+      "productName": "Gorra World Series Collection",
+      "price": "140.000",
+      "color": "Blanco",
+      "badge": false,
+      "des": "Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la World Series Collection Con 100% algodón Blanco de los Los Angeles Dodgers Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.",
+      "id": "cad2"
+    }
+  ],
+  "messages": [
+    {
+      "id": "cb33",
+      "name": "Felipe Sanchez",
+      "email": "felipe@gmail.com",
+      "message": "Hola buenas tardes! Queria decir que me encantan sus gorras! :D"
+    },
+    {
+      "id": "1aa2",
+      "name": "Jhonatan Rozo",
+      "email": "jhona@gmail.com",
+      "message": "Estan muy chimbas las gorras pero me gustaria que hayan gorras mas coloridas y nuevas "
+    },
+    {
+      "id": "8a67",
+      "name": "Angela Contreras",
+      "email": "angela@gmail.com",
+      "message": "Me encantan sus gorras :DDDDD"
+    },
+    {
+      "id": "6f22",
+      "name": "Salazar",
+      "email": "saliz@gmail.com",
+      "message": "Todo muy genial\n"
+    },
+    {
+      "id": "a15b",
+      "name": "German ",
+      "email": "german@gmail.com",
+      "message": "Buenas"
+    }
+  ],
+  "users": [
+    {
+      "id": "af91",
+      "photo": "https://static.inaturalist.org/attachments/users/icons/1363556/medium.jpg?1547013498",
+      "name": "Felipe Sanchez",
+      "email": "felipe@gmail.com",
+      "phone": "3227238923",
+      "password": "$2a$10$A138uWD2tJNGedasuz2uDOPgyzZ0QqIhs60YRPR4aSY3mxOKJnFre",
+      "address": "Cl. 60 Sur #33-15",
+      "city": "Bogotá",
+      "zip": "101010",
+      "role": "Administrador"
+    },
+    {
+      "id": "1a5f",
+      "name": "Jean Pierre",
+      "email": "jean@gmail.com",
+      "phone": "3154976741",
+      "password": "$2a$10$WRUYE2mSqH/I7uSXF4epbOhJNjC4d0X1mIIDZHaOOndI3np.TjEi.",
+      "address": "Cl. 100 #24-30",
+      "city": "Pereira",
+      "zip": "515151",
+      "role": "Empleado",
+      "photo": "https://www.lavanguardia.com/andro4all/hero/2023/10/foto-de-perfil-whatsapp.jpg?width=1200"
+    },
+    {
+      "id": "3b50",
+      "name": "Jhonatan Rozo",
+      "email": "rozo@gmail.com",
+      "phone": "3227238923",
+      "password": "$2a$10$enjDCyr4TU2q6T9l68EHJ.s9E.yW3OHlECLnkhKTRBqOnkFONnEwO",
+      "address": "3398",
+      "city": "Bogotá",
+      "zip": "110611",
+      "role": "Cliente",
+      "photo": "https://i0.wp.com/lamiradafotografia.es/wp-content/uploads/2014/07/simpson-rock.jpg"
+    }
+  ],
+  "orders": [
+    {
+      "orderId": "o1",
+      "userId": "3b50",
+      "products": [
+        {
+          "productId": "100001",
+          "productName": "Gorra Ricardo Luevanos Collection",
+          "quantity": 2,
+          "price": 100000
+        },
+        {
+          "productId": "100003",
+          "productName": "Gorra World Series Collection",
+          "quantity": 1,
+          "price": 150000
+        }
+      ],
+      "orderDate": "2024-09-22",
+      "status": "Pendiente de Pago"
+    },
+    {
+      "orderId": "o2",
+      "userId": "af91",
+      "products": [
+        {
+          "productId": "100004",
+          "productName": "Gorra Nfl Team Color Collection",
+          "quantity": 3,
+          "price": 90000
+        }
+      ],
+      "orderDate": "2024-09-20",
+      "status": "Pagado"
+    },
+    {
+      "orderId": "o3",
+      "userId": "9k32",
+      "products": [
+        {
+          "productId": "100010",
+          "productName": "Beanie Limited Edition",
+          "quantity": 1,
+          "price": 120000
+        }
+      ],
+      "orderDate": "2024-09-18",
+      "status": "Cancelado"
+    },
+    {
+      "orderId": "o4",
+      "userId": "ab12",
+      "products": [
+        {
+          "productId": "100011",
+          "productName": "Gorra Curva Summer Edition",
+          "quantity": 2,
+          "price": 80000
+        }
+      ],
+      "orderDate": "2024-09-16",
+      "status": "Pendiente de Pago"
+    },
+    {
+      "orderId": "o5",
+      "userId": "kj83",
+      "products": [
+        {
+          "productId": "100012",
+          "productName": "Gorra Retro Collection",
+          "quantity": 3,
+          "price": 110000
+        }
+      ],
+      "orderDate": "2024-09-10",
+      "status": "Pagado"
+    },
+    {
+      "orderId": "o6",
+      "userId": "mn45",
+      "products": [
+        {
+          "productId": "100013",
+          "productName": "Gorra World Series 2024",
+          "quantity": 1,
+          "price": 95000
+        }
+      ],
+      "orderDate": "2024-09-08",
+      "status": "Enviado"
+    },
+    {
+      "orderId": "o7",
+      "userId": "xy90",
+      "products": [
+        {
+          "productId": "100014",
+          "productName": "Cuff Beanie Black Edition",
+          "quantity": 2,
+          "price": 70000
+        }
+      ],
+      "orderDate": "2024-09-06",
+      "status": "Pagado"
+    },
+    {
+      "orderId": "o8",
+      "userId": "po67",
+      "products": [
+        {
+          "productId": "100015",
+          "productName": "Gorra Vintage Collection",
+          "quantity": 4,
+          "price": 85000
+        }
+      ],
+      "orderDate": "2024-09-04",
+      "status": "Entregado"
+    },
+    {
+      "orderId": "o9",
+      "userId": "qw12",
+      "products": [
+        {
+          "productId": "100016",
+          "productName": "Gorra Especial Custom",
+          "quantity": 1,
+          "price": 95000
+        }
+      ],
+      "orderDate": "2024-09-02",
+      "status": "Pagado"
+    },
+    {
+      "orderId": "o10",
+      "userId": "lk23",
+      "products": [
+        {
+          "productId": "100017",
+          "productName": "Cuff Beanie Winter Edition",
+          "quantity": 1,
+          "price": 110000
+        }
+      ],
+      "orderDate": "2024-09-01",
+      "status": "Entregado"
+    }
+  ],
+  "sales": [
+    {
+      "saleId": "s1",
+      "orderId": "o2",
+      "userId": "af91",
+      "paymentMethod": "Tarjeta de Crédito",
+      "paymentDate": "2024-09-21",
+      "deliveryDate": "2024-09-25",
+      "totalAmount": 270000
+    },
+    {
+      "saleId": "s2",
+      "orderId": "o5",
+      "userId": "kj83",
+      "paymentMethod": "PayPal",
+      "paymentDate": "2024-09-12",
+      "deliveryDate": "2024-09-16",
+      "totalAmount": 330000
+    },
+    {
+      "saleId": "s3",
+      "orderId": "o7",
+      "userId": "xy90",
+      "paymentMethod": "Tarjeta de Débito",
+      "paymentDate": "2024-09-08",
+      "deliveryDate": "2024-09-12",
+      "totalAmount": 140000
+    },
+    {
+      "saleId": "s4",
+      "orderId": "o8",
+      "userId": "po67",
+      "paymentMethod": "Efectivo",
+      "paymentDate": "2024-09-06",
+      "deliveryDate": "2024-09-10",
+      "totalAmount": 340000
+    },
+    {
+      "saleId": "s5",
+      "orderId": "o9",
+      "userId": "qw12",
+      "paymentMethod": "Tarjeta de Crédito",
+      "paymentDate": "2024-09-04",
+      "deliveryDate": "2024-09-08",
+      "totalAmount": 95000
+    },
+    {
+      "saleId": "s6",
+      "orderId": "o10",
+      "userId": "lk23",
+      "paymentMethod": "Transferencia Bancaria",
+      "paymentDate": "2024-09-03",
+      "deliveryDate": "2024-09-06",
+      "totalAmount": 110000
+    },
+    {
+      "saleId": "s7",
+      "orderId": "o4",
+      "userId": "ab12",
+      "paymentMethod": "Tarjeta de Débito",
+      "paymentDate": "2024-09-15",
+      "deliveryDate": "2024-09-18",
+      "totalAmount": 160000
+    },
+    {
+      "saleId": "s8",
+      "orderId": "o1",
+      "userId": "3b50",
+      "paymentMethod": "PayPal",
+      "paymentDate": "2024-09-22",
+      "deliveryDate": "2024-09-26",
+      "totalAmount": 250000
+    }
+  ],
+  "customizations": [
+    {
+      "customizationId": "c1",
+      "userId": "af91",
+      "productType": "Gorra Plana",
+      "creationDate": "2024-09-22",
+      "3DModelLink": "https://example.com/modelo3d/gorra-plana",
+      "imageLinks": [
+        "https://example.com/images/gorra-plana-1.jpg",
+        "https://example.com/images/gorra-plana-2.jpg"
+      ]
+    },
+    {
+      "customizationId": "c2",
+      "userId": "3b50",
+      "productType": "Beanie",
+      "creationDate": "2024-09-15",
+      "3DModelLink": "https://example.com/modelo3d/beanie",
+      "imageLinks": [
+        "https://example.com/images/beanie-1.jpg",
+        "https://example.com/images/beanie-2.jpg"
+      ]
+    },
+    {
+      "customizationId": "c3",
+      "userId": "mn45",
+      "productType": "Cuff Beanie",
+      "creationDate": "2024-09-10",
+      "3DModelLink": "https://example.com/modelo3d/cuff-beanie",
+      "imageLinks": [
+        "https://example.com/images/cuff-beanie-1.jpg",
+        "https://example.com/images/cuff-beanie-2.jpg"
+      ]
+    }
+  ]
+}
