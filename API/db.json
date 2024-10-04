@@ -13,7 +13,7 @@
       "imageUrl": "https://neweraco.vtexassets.com/assets/vtex.file-manager-graphql/images/7400e4f7-320d-46fd-af5b-293f12ba56ac___78bc5192c9395c9c8525d6554756efa4.jpg"
     }
   ],
-  "sales": [
+  "images": [
     {
       "id": "1",
       "imageUrl": "https://newera.com.ar/media/wysiwyg/sliders/newera/Banners-NE-Febrero-02-mobile.jpg"
@@ -25,6 +25,88 @@
     {
       "id": "3",
       "imageUrl": "https://newera.com.ar/media/wysiwyg/sliders/newera/Banners-NE-Febrero-koi-fish-mobile.jpg"
+    }
+  ],
+  "sells": [
+    {
+      "saleId": "s1",
+      "orderId": "o2",
+      "userId": "af91",
+      "paymentMethod": "Tarjeta de Crédito",
+      "paymentDate": "2024-09-21",
+      "deliveryDate": "2024-09-25",
+      "totalAmount": 270000,
+      "id": "0e1f"
+    },
+    {
+      "saleId": "s2",
+      "orderId": "o5",
+      "userId": "kj83",
+      "paymentMethod": "PayPal",
+      "paymentDate": "2024-09-12",
+      "deliveryDate": "2024-09-16",
+      "totalAmount": 330000,
+      "id": "7e34"
+    },
+    {
+      "saleId": "s3",
+      "orderId": "o7",
+      "userId": "xy90",
+      "paymentMethod": "Tarjeta de Débito",
+      "paymentDate": "2024-09-08",
+      "deliveryDate": "2024-09-12",
+      "totalAmount": 140000,
+      "id": "37bc"
+    },
+    {
+      "saleId": "s4",
+      "orderId": "o8",
+      "userId": "po67",
+      "paymentMethod": "Efectivo",
+      "paymentDate": "2024-09-06",
+      "deliveryDate": "2024-09-10",
+      "totalAmount": 340000,
+      "id": "2dd9"
+    },
+    {
+      "saleId": "s5",
+      "orderId": "o9",
+      "userId": "qw12",
+      "paymentMethod": "Tarjeta de Crédito",
+      "paymentDate": "2024-09-04",
+      "deliveryDate": "2024-09-08",
+      "totalAmount": 95000,
+      "id": "a4b0"
+    },
+    {
+      "saleId": "s6",
+      "orderId": "o10",
+      "userId": "lk23",
+      "paymentMethod": "Transferencia Bancaria",
+      "paymentDate": "2024-09-03",
+      "deliveryDate": "2024-09-06",
+      "totalAmount": 110000,
+      "id": "a466"
+    },
+    {
+      "saleId": "s7",
+      "orderId": "o4",
+      "userId": "ab12",
+      "paymentMethod": "Tarjeta de Débito",
+      "paymentDate": "2024-09-15",
+      "deliveryDate": "2024-09-18",
+      "totalAmount": 160000,
+      "id": "1411"
+    },
+    {
+      "saleId": "s8",
+      "orderId": "o1",
+      "userId": "3b50",
+      "paymentMethod": "PayPal",
+      "paymentDate": "2024-09-22",
+      "deliveryDate": "2024-09-26",
+      "totalAmount": 250000,
+      "id": "f35c"
     }
   ],
   "products": [
@@ -219,18 +301,30 @@
       "name": "German ",
       "email": "german@gmail.com",
       "message": "Buenas"
+    },
+    {
+      "id": "4706",
+      "name": "Narly",
+      "email": "narly@gmail.com",
+      "message": "hola "
+    },
+    {
+      "id": "8146",
+      "name": "Alexander Olgin",
+      "email": "alexander@gmail.com",
+      "message": "hola buenas tardes para preguntarte por una gorra de color azul que aun no llega a colombia y me gustaria apartarla"
     }
   ],
   "users": [
     {
       "id": "af91",
-      "photo": "https://static.inaturalist.org/attachments/users/icons/1363556/medium.jpg?1547013498",
+      "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQAlAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAAEBQADBgIBB//EADkQAAIBAwMCBAQEBQEJAAAAAAECAwAEEQUSITFBEyJRYQYycYEUkaHBFSNCUrFyJENigqLR4fDx/8QAGAEAAwEBAAAAAAAAAAAAAAAAAQIDAAT/xAAfEQEBAAIDAAMBAQAAAAAAAAAAAQIREiExAxNBMmH/2gAMAwEAAhEDEQA/AMhGB3NFJFlcjrih0Td0Iq9C6deBTEFxLGMbgc169up8ycYriKTdw32NXqjL8vI70DAWVy2GGBXrx9BTAxjbnGa5/DFgWQZI7GjsNANlEW0eQa8ZMHBGDRFv5FPSiXSPFhaXXKcmr7nV7FCUNwm4HBA5qpJY7lN8LBlz2rQKFEZz0o21z8p5Fc7MV1HlWz2rUJHssGT5BQssPPQ5pmcumVFUsgPUc0DaKySpxXLSKPmFGSwg/WhXXHDDim3olxVHY3TrVbJXksZByhNV+My/MuafkncUKc17Xn4iM8nI9qlbZdUVA7dqZQzKQFkH3oZoRFtaNSRV2wrjrzUq6YNWzYrvhIYelRbh4yVZa9snbG3dxnpTE28c6dAG+lA8CwTqze9E+E/zR9KAmiaGTAGCKNt7qRE5UEYrM9eOOUbZQVfscVjviu6lhlFkj4UrukK9/QVu45opFzIVUDqW/prA/FFrPJqAvpYTDa3A/kSMQVcKOeRxn260ZQynXTO5xjsBTLT7h4SrxthuvHQ+xqq2JaRY7UIJW4UN1Y/U8fnRF7HqVhcrFqdnIjkZCyIFJHqrDqPpmjuEkta2LEsSOvRlDA/WoyYqaPxZRxOrpLGoVkkGGHp+lXSLzWF1ayDZtI+9cT+XLHHtViJhc9KkhUodwyKwgHYnHAqp1B4NWzQup3ITtqmUlOCCfcVihZoip8p4oOReu6mBO8ZAoaWMOMH86JaBKHPFSr9m3gdBUog0EaiSMEdfSrI1ycDr70vgnfJ82B6e9HQ30YZdy8j5sVHbo4i4o+emDRiRgkHJFDi5tmYHxAM9jR0KCRcoysPbmjsdPJYUuFAc+cdGof8ACtE3mzREoCrnt3HeuC+VHORWDRL8UR406M4/3wGc+xrM6nLI+lxW2E8CFy6ZUbiSME56ke1aD4q1eBEjstoZt4kcj+jjgfr/AIrNzPCYxcRKGIbHm5x9K36aauOi07XQDGXJ6dq2/wAK6sdVtP4DqMImV8fhduF2yJyo9OduMjB5OazkUFpqKH8KPCuTglMkfXHrmnPwVbfhtdtJJ/5aQzrjg4PP/vNDKywMMLL/AI2M0UE1tazRtmW4gEjx7TuQ9+vOM5pY1uwPAyK41HWXslvtQt3jkmt5BAARjYpJyGHoTyD0NN7O5ttRtorqLASVAy57diPsaONrZybAogdcHgihXADMp6GmUsSM2Y3QnPah7hEUjcR+dMRSYg6bVxjvS65iEakNRss626kmRAP9VATXsE2BuJ96JaGCkHI5B9K5eMHn1q6dfw0JkcEoRkY70nM1xcOAMqvYGsAh/DViCy/nXtASWchclpYgfQmvaOw0cTQ9JFGM8kCqAcSk9c13A0jqHkUqF7Z7UDPdbpCYEO0dali6M7PRjXGDhjzRNvfNGQysVAHJFI2vGJYbASfXtVtteMm7cQ3Hc0+kubX2muwlFFziRc4yBzQ1/wDEWlxy7Ld5JHBIZdhULj1J6/akN1qbwWAWKNQWOFkA6epFZ7JJJPJPrQka5rLmd7u6kmkHmkYtiooK27h8HdjGD8tVr8wwM+1ESMfEVVUrGnCgr05z9+fWmKti07UYrX+JxQTLBEQ3jBen/F9PfpTBfiIrbb0JhvF43IOvHWtFb/EsUvw/Kk7lbhIwocEbt2MDj3/b6VktRSynhSa1iaCcn+dAnMf+pfT6flSdZeqzK4TWNWadeK0xizy8e0FhuB5+Ug9RWj0WeGw0m4BkYQwXIzHgsYt65IB7rlcg98nvmsESVYFTg9j6U2/iDTWf4aQgLKQS+0Z3qOMn0wf809iUumn1K7G1RA2S/O4dMUpcuCWlYkeua50F/wDaTbSneGBK8cZ9qv1BAsuO3pRC3fZXcM0jYJO3PFXbThRn5Rk5oqWGGRCy5yvAHY+9DSR+QoBlmxzntWCGVlMzwebkdFBrsJasxiO6O4z5cDhqI0JEZp0k4CRBl9SaA1ZcTB0yuOeO1Kf8eTKFkKvH5h1yK8q9NaHhos+m28rqoXxN5Bb3NSi3SW6gjCgfavLqw3NuOVBHap8PuY1czoM9i3GaYSsHRpHcKq924FR3rJ0WS4ETWEX9T7VPfvRljY2pcNHiUKecmqJ7yF22QRmbPpR+m6eYbd5trRyEHCE8CqVGTsl+J7qOW6S3gwEhHmA/uJpLXrBgxEmd4OGz6968700JfRUW63t3mQeY+RW/tJFRblppS82C7fMcdaollYqIg2UXn7mqx1rNvRxGkKBS+GRxlcDnNcu7DK7T9So6fn9aBgkUgxzuwjJzx2PP/ei4EaYeHK+5f7vU9qnZpeZcugE9tJHAlwQDDKxCMPUdRVSYKsrH3X602+J9Qmvp7VJokie3gCOEPDOerfcY/Wk1UniOU1R9pdvbzLLHyyPuwehXGTWiiMd7ELlFKqxOQ3qKyUTlXz1GMYrYaPA8OlQiRSrPlsHqAfWsEito9inA4qqzXxJcEUXcgheuOa5skKTMMYX1/trNrsTaWLJqK7sqrRkAg9+1VarFwU7jqfej9+3wXPJVeDQ93DI4Zo1yrcmlNYzxBzUq+WMo5DA5qUxVr38EIGwcnHB7UZHfWZiXxXGCflYZpKgWQYkAOe4q1YLY4EbPvB71PpaXI9tbqw8TEWEGcDIxTGeaIxARHee6oM1lmtJ3jDxsoGeQTyKJs3voc+Egz60NbGZXzSrVNBa5d57QNHM5y0E3BP8ApP7Urm0TUbe1luJrZookGSzEZx7VrrXUb52UOU39PNirdfluLvRLsSMPJETgDrjn9qMypLjLNvnWKldKC27A6DJryqJPAMnFNrdha25aVSQoBx7+lL7KPxrlUxnvRN87NChz1Yqw+wpb2fDqbATSPNIZJDl2PNXadbLdX9tBIXWOWVUZkHIBI6e9Dke3FNLLdGLRgdq+MjI2OQQQTTF9rQt8L2WkXkhuZJJvBkKgyDAPPBwKZM0ZTdG2/Ix64pp8XXtvbXHhXkMrpLEh3RYweMftSzR4bO9jlawtZ0KYB8SZV6/Wp3KxbH45f0DLGRIySY45+tSaURY8M7iRyAM8Vfq8UtkY3l2fzMjPiBv8VmZdTIuCsTshGRkcUZdkyx1dHD3iLGQxP0Fdwa0YY2U2rumOuccVmJrlid2ctVzalPJbLblgVUkgkcj/AMUQ0IvtTMlwzCAD23CpRWnXWipaqNQ8Yz552oMVK3KBwpaJwijA5PSiIrtOMqCe9KzISMcV3C3mxjOaFxPMj0yiZSACPpV9uRDbyli2dhIFLIyI4juPmJwPWmq3VmlqiTTgcYIUZIqfivpVmUyKyOSzc5IxinunOs0XhTs20grwODQcURgYTaf/ADo24y+PLTawMjxM80aRSqeAOQ1NcoSYVglJiEydc+TP3B/aq/vVkjF/EY95C351UcjkVVE10mOOKFruY7VPlX1PsKGu2R4QyH5nLEf2mm2maa5hluJjkWlu0h/tjAGfuc/rSF+ee9JO6e9SR5Ayq2113I3BFOtDsY76WXTpbgRXARpbSVj5S6ruAJ7AhTz60iIoy0vHh8Ng2JIzlGHUEftTpvoWpXkesaBo97IVD+HJDKp/uUjP+c/QikJtdr+IjAx9kAzmqbW9jhumgkx+DnP4mEY+UsBuH5jH/LXeo6j+EmRditG3y5HSpW5TLUdGPG49l+pakZ8QSqmyM8YUAilF0YxKGiPlx+Vd6hIJ53dRjLZoXBPyjOOtUkQteMxzgnmorkHg14QS3pXhUbuGB+ootF+8d1yfWpVWCO2alDRtjntnCllQ8URa2TSFBEp8RvlHetnHbF0YyRogOGXK+bHuKHNrtnLxuIpRg7QOoPpSc1fqkZye1vxtzH045HeuItIupWBZCAenlNa+C3kmKY1CZGYYbGCAc/8AyuvwOrwgyLqPkDbfMnNLyo3CbZ1NF1KKPA3iNuPKp4pjzo1nvv2wuOPUn2p7A+rRfNfIFxzuizn9azF5o95eX0tzd36zv5/BDKcAkHGR2HP6UOre6OtTqMmD5NuOc5zXiDMiDGcsB+tetGyOyN8ykqftV9gFS7jaQ8KeB6npir/jnk7ai+cWfwve7gVe8kjhU9wOHx9wDWTPSnOrzb7MxGQYEgcLnJzgjn7fqaTGkw8P8v8ASputdDBHAHFeiN5N+xSdi7mwM4HqfzrwjYcnuDTpCGmZ44hx/LBA9s81qRpWkX9tBdCe+Teg8gTeFPcZ+tA6f8I39wInuWS2SUblGd7kfQcfrWr07Q7S2shBDJKQpJbe3ep55aW+PC31l7vQtPVQTd3Sgnq0IxXM1vp0Nh4MMqJIeDI0fLCtLJ8P2EreZJn3Akr4h4oO4+GNPKuVWU7DgHf1peez/Vpi5dODAslwjAdRjFcPZLEAWkX6VsR8OWZZd0TjjkA4xQ138OWBJI8cZP8AUelNyhfrrK4iHG5a8rVQaBaBMCFyMnlm5rytzH66a28V1K6SSXCMC3UnkDpRk0mzcGZZWX+rGSR6Gs82sobCMxxsbppCCFwwZcenar9Nu5pp8+RWTAUdNyn96nZYpjlicW91CI0SXBb5gQcE5qm4uZPHkVcyRZHmLHKeoC0O0Ugd1QwRn1LZJrhxtLNJJ528u5TxigY4ivrUTIreII9vPm68fpVOo3iRWs8yYjRYW5yCSccHNLJBGkSB5pAy9GUHkfWhde3fw2Xb1KAnPZc9PrWnrXqVkR0rpeorjPevdw7GulxOySSSeSeTXJrzf9am73NYdrbeUwS7wMggqQTjIPaidO0xbrabm4EMZ5wRlm+lBxTCN92xX46MMimltrjRxCNoFcqcqfKuP+mhlv8AGnH9btLzZp8IQSO9tDtLZzngEHjvzVEd6wAmaJnPLEDkNnoap0HUy+kG7lghRC7I58T0A9aQ6z8QO0rW1tbrGu0DcAUbOc8e1R1bXTM5MdnN9rFrbeGZEJlyCsQOCueuRS6S/u71ysVwI5MgiB1wcA54PT86ypEhuSDmSQuM55zTNWKzYlPgq52uMYK89Qe1NxkT+y09sJrp7Rn3sWVv53hAEqvXLDr9aIi1NZRIb1LedUwz/huhX1A9aTtfNZ6lHHPdCYIfJKjebbjpjkUlvLzxJGMW5d2dzHjP5UJj2a/JqdNSl9ayKHhmRY2yVDthsZ7+9Sklhe3KWkcaQxMqjAYkgmva1xGfJQSu0cw2HBwRkHGKYzk28rCIkbYgQc81KlPUoeafGlxaybx8kIdSOxzQ8crb2U9MlalSoz1ffUdWt9NgQZG1sgk8k1x8QjGjysWYnI5JqVKfH1sv5YwdKlSpVnGlSpUrMleg4NSpWYz0tfxIe2kZhF8+B64IrmMvIkdw0j+LH5Q2c8Zx3qVKBr4LndprYyscNCuU2gAV1+MmktBvYEsy8lQcVKlJfVcfAdwRcyOzogYSAZQY4qu9t44cSR5BZipGeMV5UpiiIHeJNisSAeM1KlSpmf/Z",
       "name": "Felipe Sanchez",
-      "email": "felipe@gmail.com",
+      "email": "felipecon@gmail.com",
       "phone": "3227238923",
       "password": "$2a$10$A138uWD2tJNGedasuz2uDOPgyzZ0QqIhs60YRPR4aSY3mxOKJnFre",
-      "address": "Cl. 60 Sur #33-15",
-      "city": "Bogotá",
+      "address": "Cl. 20 Sur #33-15",
+      "city": "Manizales",
       "zip": "101010",
       "role": "Administrador"
     },
@@ -257,6 +351,29 @@
       "zip": "110611",
       "role": "Cliente",
       "photo": "https://i0.wp.com/lamiradafotografia.es/wp-content/uploads/2014/07/simpson-rock.jpg"
+    },
+    {
+      "id": "508a",
+      "name": "Angela Contreras",
+      "email": "angela@gmail.com",
+      "phone": "3106015401",
+      "password": "$2a$10$Vh5PAWp7DRCW0pABjaWP5ORJbu3pATpgfvCk9aB1qUdHD3PFfz3I2",
+      "address": "Calle 100",
+      "city": "Medellin",
+      "zip": "202020",
+      "role": "Cliente"
+    },
+    {
+      "id": "0dc1",
+      "name": "Alexnder Olgin",
+      "email": "alexander@gmail.com",
+      "phone": "3106015490",
+      "password": "$2a$10$zgh4MFuEA4vL0ZPN7/XTQeC8IMQep5QOf5xE.nLPV.xApueNQm29.",
+      "address": "Calle 80 ",
+      "city": "Medellin",
+      "zip": "101010",
+      "role": "Cliente",
+      "photo": "data:image/png;base64,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"
     }
   ],
   "orders": [
@@ -278,7 +395,8 @@
         }
       ],
       "orderDate": "2024-09-22",
-      "status": "Pendiente de Pago"
+      "status": "Pendiente de Pago",
+      "id": "eb29"
     },
     {
       "orderId": "o2",
@@ -292,7 +410,8 @@
         }
       ],
       "orderDate": "2024-09-20",
-      "status": "Pagado"
+      "status": "Pagado",
+      "id": "5426"
     },
     {
       "orderId": "o3",
@@ -306,7 +425,8 @@
         }
       ],
       "orderDate": "2024-09-18",
-      "status": "Cancelado"
+      "status": "Cancelado",
+      "id": "42c0"
     },
     {
       "orderId": "o4",
@@ -320,7 +440,8 @@
         }
       ],
       "orderDate": "2024-09-16",
-      "status": "Pendiente de Pago"
+      "status": "Pendiente de Pago",
+      "id": "91b9"
     },
     {
       "orderId": "o5",
@@ -334,7 +455,8 @@
         }
       ],
       "orderDate": "2024-09-10",
-      "status": "Pagado"
+      "status": "Pagado",
+      "id": "bca2"
     },
     {
       "orderId": "o6",
@@ -348,7 +470,8 @@
         }
       ],
       "orderDate": "2024-09-08",
-      "status": "Enviado"
+      "status": "Enviado",
+      "id": "5c76"
     },
     {
       "orderId": "o7",
@@ -362,7 +485,8 @@
         }
       ],
       "orderDate": "2024-09-06",
-      "status": "Pagado"
+      "status": "Pagado",
+      "id": "a112"
     },
     {
       "orderId": "o8",
@@ -376,7 +500,8 @@
         }
       ],
       "orderDate": "2024-09-04",
-      "status": "Entregado"
+      "status": "Entregado",
+      "id": "c753"
     },
     {
       "orderId": "o9",
@@ -390,7 +515,8 @@
         }
       ],
       "orderDate": "2024-09-02",
-      "status": "Pagado"
+      "status": "Pagado",
+      "id": "8f89"
     },
     {
       "orderId": "o10",
@@ -404,81 +530,8 @@
         }
       ],
       "orderDate": "2024-09-01",
-      "status": "Entregado"
-    }
-  ],
-  "sales": [
-    {
-      "saleId": "s1",
-      "orderId": "o2",
-      "userId": "af91",
-      "paymentMethod": "Tarjeta de Crédito",
-      "paymentDate": "2024-09-21",
-      "deliveryDate": "2024-09-25",
-      "totalAmount": 270000
-    },
-    {
-      "saleId": "s2",
-      "orderId": "o5",
-      "userId": "kj83",
-      "paymentMethod": "PayPal",
-      "paymentDate": "2024-09-12",
-      "deliveryDate": "2024-09-16",
-      "totalAmount": 330000
-    },
-    {
-      "saleId": "s3",
-      "orderId": "o7",
-      "userId": "xy90",
-      "paymentMethod": "Tarjeta de Débito",
-      "paymentDate": "2024-09-08",
-      "deliveryDate": "2024-09-12",
-      "totalAmount": 140000
-    },
-    {
-      "saleId": "s4",
-      "orderId": "o8",
-      "userId": "po67",
-      "paymentMethod": "Efectivo",
-      "paymentDate": "2024-09-06",
-      "deliveryDate": "2024-09-10",
-      "totalAmount": 340000
-    },
-    {
-      "saleId": "s5",
-      "orderId": "o9",
-      "userId": "qw12",
-      "paymentMethod": "Tarjeta de Crédito",
-      "paymentDate": "2024-09-04",
-      "deliveryDate": "2024-09-08",
-      "totalAmount": 95000
-    },
-    {
-      "saleId": "s6",
-      "orderId": "o10",
-      "userId": "lk23",
-      "paymentMethod": "Transferencia Bancaria",
-      "paymentDate": "2024-09-03",
-      "deliveryDate": "2024-09-06",
-      "totalAmount": 110000
-    },
-    {
-      "saleId": "s7",
-      "orderId": "o4",
-      "userId": "ab12",
-      "paymentMethod": "Tarjeta de Débito",
-      "paymentDate": "2024-09-15",
-      "deliveryDate": "2024-09-18",
-      "totalAmount": 160000
-    },
-    {
-      "saleId": "s8",
-      "orderId": "o1",
-      "userId": "3b50",
-      "paymentMethod": "PayPal",
-      "paymentDate": "2024-09-22",
-      "deliveryDate": "2024-09-26",
-      "totalAmount": 250000
+      "status": "Entregado",
+      "id": "bf22"
     }
   ],
   "customizations": [
@@ -491,7 +544,8 @@
       "imageLinks": [
         "https://example.com/images/gorra-plana-1.jpg",
         "https://example.com/images/gorra-plana-2.jpg"
-      ]
+      ],
+      "id": "c403"
     },
     {
       "customizationId": "c2",
@@ -502,7 +556,8 @@
       "imageLinks": [
         "https://example.com/images/beanie-1.jpg",
         "https://example.com/images/beanie-2.jpg"
-      ]
+      ],
+      "id": "9229"
     },
     {
       "customizationId": "c3",
@@ -513,7 +568,8 @@
       "imageLinks": [
         "https://example.com/images/cuff-beanie-1.jpg",
         "https://example.com/images/cuff-beanie-2.jpg"
-      ]
+      ],
+      "id": "3d40"
     }
   ]
 }

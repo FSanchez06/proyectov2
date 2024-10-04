@@ -23,9 +23,8 @@ import Payment from "./pages/payment/Payment";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Shop from "./pages/Shop/Shop";
 import Profile from "./pages/Account/Profile";
-import AdminDashboard from './pages/Dashboard/AdminDashboard';
-import ClientDashboard from './pages/Dashboard/ClientDashboard';
-import EmployeeDashboard from './pages/Dashboard/EmployeeDashboard';
+import Dashboard from './pages/Dashboard/Dashboard';
+
 
 const Layout = () => {
   return (
@@ -58,9 +57,7 @@ const router = createBrowserRouter(
         <Route path="/profile" element={<Profile />} />
       </Route>
       {/* Rutas para los dashboards de cada rol */}
-      <Route path="/dashboard/administrador" element={<AdminDashboard />} />
-      <Route path="/dashboard/cliente" element={<ClientDashboard />} />
-      <Route path="/dashboard/empleado" element={<EmployeeDashboard />} />
+      <Route path="/dashboard/{{role}}" element={<Dashboard />} />
       <Route path="/signup" element={<SignUp />}></Route>
       <Route path="/signin" element={<SignIn />}></Route>
     </Route>
