@@ -6,7 +6,7 @@ const Sale = () => {
   const [sales, setSales] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3002/sales')
+    fetch('http://localhost:3002/images')
       .then(response => response.json())
       .then(data => setSales(data));
   }, []);

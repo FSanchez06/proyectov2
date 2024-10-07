@@ -11,7 +11,21 @@ const NewArrivals = () => {
   useEffect(() => {
     fetch('http://localhost:3002/products')
       .then(response => response.json())
-      .then(data => setNewArrivals(data));
+      .then(data => {
+        // Filtrar productos con badge true
+        const filteredProducts = data.filter(product => product.badge);
+        
+        // Ordenar productos por fecha de creación (suponiendo que hay un campo 'createdAt')
+        const sortedProducts = filteredProducts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        
+        // Actualizar el badge del más antiguo a false, si hay más de 8 productos
+        if (sortedProducts.length > 8) {
+          sortedProducts[sortedProducts.length - 1].badge = false; // Actualiza el badge del más antiguo
+        }
+
+        // Tomar solo los 8 más recientes
+        setNewArrivals(sortedProducts.slice(0, 8));
+      });
   }, []);
 
   const settings = {
