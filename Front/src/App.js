@@ -57,7 +57,7 @@ const router = createBrowserRouter(
         <Route path="/profile" element={<Profile />} />
       </Route>
       {/* Rutas para los dashboards de cada rol */}
-      <Route path="/dashboard/{{role}}" element={<Dashboard />} />
+      <Route path="/dashboard/:role" element={<Dashboard />} />
       <Route path="/signup" element={<SignUp />}></Route>
       <Route path="/signin" element={<SignIn />}></Route>
     </Route>
