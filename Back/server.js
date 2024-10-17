@@ -1,11 +1,15 @@
+require('dotenv').config(); // Asegúrate de requerir dotenv
+
 const express = require("express");
 const mysql = require("mysql2");
 const myconn = require("express-myconnection");
 
-const routes = require("./routes/routes");
+const routes = require("./routes/Rolroutes");
+const usuarioRoutes = require("./routes/Usuarioroutes");
 
 const app = express();
 app.set("port", process.env.PORT || 9000);
+
 const dbOptions = {
     host: 'localhost',
     port: 3306,
@@ -14,18 +18,19 @@ const dbOptions = {
     database: "siena",
 }
 
-//middlewares --------------------------------------------
-app.use(myconn(mysql, dbOptions, 'single'))
+// Middlewares --------------------------------------------
+app.use(myconn(mysql, dbOptions, 'single'));
 app.use(express.json());
 
-//routes --------------------------------------------------
+// Routes --------------------------------------------------
 app.get("/", (req, res, next)=> {
-    res.send("Welcome to mi API for mysql");
-})
+    res.send("Welcome to my API for MySQL");
+});
 
-app.use("/api", routes)
+app.use("/api", routes);
+app.use("/api", usuarioRoutes);  // Usa la nueva ruta
 
-//server running -----------------------------------------
+// Server running -----------------------------------------
 app.listen(app.get("port"), () => {
-    console.log("Server runnin on port", 9000);
-})
+    console.log("Server running on port", app.get("port"));
+});
