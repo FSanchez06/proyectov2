@@ -2,7 +2,7 @@ const express = require("express");
 const mysql = require("mysql2");
 const myconn = require("express-myconnection");
 
-const routes = require("./routes");
+const routes = require("./routes/routes");
 
 const app = express();
 app.set("port", process.env.PORT || 9000);
@@ -11,7 +11,7 @@ const dbOptions = {
     port: 3306,
     user: 'root',
     password: "",
-    database: "library",
+    database: "siena",
 }
 
 //middlewares --------------------------------------------

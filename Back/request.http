@@ -20,6 +20,6 @@ Content-Type: application/json
 
 {
     "titulo": "Soliloquios",
-    "autor": "Marco Aurelio",
+    "autor": "Marco Antonio",
     "edicion": 4
 }
