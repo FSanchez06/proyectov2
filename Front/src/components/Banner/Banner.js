@@ -8,9 +8,15 @@ const Banner = () => {
   const [dotActive, setDocActive] = useState(0);
 
   useEffect(() => {
-    fetch('http://localhost:3002/banners')
-      .then(response => response.json())
-      .then(data => setBanners(data));
+    fetch('http://localhost:9000/api/banners') // Asegúrate de que esta URL sea la correcta
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Error al obtener los banners');
+        }
+        return response.json();
+      })
+      .then(data => setBanners(data))
+      .catch(error => console.error(error)); // Manejo de errores
   }, []);
 
   const settings = {
@@ -40,9 +46,9 @@ const Banner = () => {
     <div className="w-full bg-white">
       <Slider {...settings}>
         {banners.map(banner => (
-          <Link key={banner.id} to="/offer">
+          <Link key={banner.ID_Banner} to="/offer">
             <div>
-              <Image imgSrc={banner.imageUrl} />
+              <Image imgSrc={banner.ImgBanner} /> {/* Cambiado a ImgBanner */}
             </div>
           </Link>
         ))}

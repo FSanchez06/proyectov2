@@ -1,0 +1,41 @@
+CREATE DATABASE siena;
+USE siena;
+
+-- creacion tablas 
+CREATE TABLE Rol (
+	ID_Rol INT PRIMARY KEY,
+    TipoRol VARCHAR(30)
+);
+
+-- insert datos unicos de la tabla rol (no cambia)
+INSERT INTO Rol (ID_Rol, TipoRol) VALUES
+(1, 'Administrador'),
+(2, 'Empleado'),
+(3, 'Cliente');
+
+CREATE TABLE Usuario (
+    ID_Usuario INT PRIMARY KEY AUTO_INCREMENT,
+    Nombre VARCHAR(250),
+    Email VARCHAR(250) UNIQUE,
+    Contraseña VARCHAR(300),
+    Telefono VARCHAR(10), -- Cambiado a VARCHAR para manejar códigos de país
+    Ciudad VARCHAR(150),
+    CodPostal INT(6),
+    Direccion VARCHAR(250),
+    FotoPerfil VARCHAR(300),
+    PublicId VARCHAR(255),
+    ID_Rol INT, -- Agregamos una columna para relacionar con Rol
+    FOREIGN KEY (ID_Rol) REFERENCES Rol(ID_Rol) ON DELETE SET NULL -- Relación con la tabla Rol
+);
+
+SELECT * FROM Usuario;
+
+CREATE TABLE Banners (
+	ID_Banner INT PRIMARY KEY AUTO_INCREMENT,
+    ImgBanner VARCHAR(300),
+    PublicId VARCHAR(250),
+    ID_Usuario INT,
+    FOREIGN KEY (ID_Usuario) REFERENCES Usuario(ID_Usuario) ON DELETE CASCADE
+);
+
+select * from Banners;
