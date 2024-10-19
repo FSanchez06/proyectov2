@@ -6,7 +6,7 @@ const Sale = () => {
   const [sales, setSales] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3002/images')
+    fetch('http://localhost:9000/api/images')
       .then(response => response.json())
       .then(data => setSales(data));
   }, []);
@@ -19,7 +19,7 @@ const Sale = () => {
           <Link to="/shop">
             <img 
               className="w-full h-128 object-cover rounded-lg" // Height for left image
-              src={sales[0].imageUrl} 
+              src={sales[0].ImageHome} 
               alt="Sale Item" 
             />
           </Link>
@@ -33,14 +33,14 @@ const Sale = () => {
             <Link to="/shop" className="flex-grow">
               <img 
                 className="w-full h-80 object-cover rounded-lg" // Increased height for right images
-                src={sales[1].imageUrl} 
+                src={sales[1].ImageHome} 
                 alt="Sale Item" 
               />
             </Link>
             <Link to="/shop" className="flex-grow">
               <img 
                 className="w-full h-80 object-cover rounded-lg" // Increased height for right images
-                src={sales[2].imageUrl} 
+                src={sales[2].ImageHome} 
                 alt="Sale Item" 
               />
             </Link>

@@ -12,6 +12,7 @@ const cors = require('cors'); // Importa el paquete cors
 const rolRoutes = require("./routes/Rolroutes");
 const usuarioRoutes = require("./routes/Usuarioroutes");
 const bannersRoutes = require("./routes/BannersRoutes");
+const imagesRoutes = require("./routes/ImagesRoutes");
 
 const app = express();
 app.set("port", process.env.PORT || 9000);
@@ -39,13 +40,14 @@ app.use(fileUpload({ useTempFiles: true, tempFileDir: path.join(__dirname, 'tmp/
 app.use(cors());
 
 // Rutas
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
     res.send("Bienvenido a la API de Siena");
 });
 
 app.use("/api", rolRoutes); // Rutas para roles
 app.use("/api", usuarioRoutes); // Rutas para usuarios
 app.use("/api", bannersRoutes); //Rutas para banners
+app.use("/api", imagesRoutes); //Rutas para imagenes home
 
 // Iniciar el servidor
 app.listen(app.get("port"), () => {
