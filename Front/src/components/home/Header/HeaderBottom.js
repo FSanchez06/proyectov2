@@ -38,7 +38,7 @@ const HeaderBottom = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:3002/products");  // Aquí haces la petición a tu API
+        const response = await axios.get("http://localhost:9000/api/productos");  // Aquí haces la petición a tu API
         setApiProducts(response.data);  // Guardas los productos obtenidos de la API
       } catch (error) {
         console.error("Error al obtener los productos:", error);
@@ -55,7 +55,7 @@ const HeaderBottom = () => {
   // Filtrar productos cuando cambia el término de búsqueda
   useEffect(() => {
     const filtered = apiProducts.filter((item) =>
-      item.productName.toLowerCase().includes(searchQuery.toLowerCase())
+      item.NombreProducto.toLowerCase().includes(searchQuery.toLowerCase())  // Asegúrate de usar el campo correcto
     );
     setFilteredProducts(filtered);
   }, [searchQuery, apiProducts]);
@@ -94,36 +94,34 @@ const HeaderBottom = () => {
                 className={`w-full mx-auto h-96 bg-white top-16 absolute left-0 z-50 overflow-y-scroll shadow-2xl scrollbar-hide cursor-pointer`}
               >
                 {filteredProducts.map((item) => (
-                  <div
-                    onClick={() =>
-                      navigate(
-                        `/product/${item.productName
-                          .toLowerCase()
-                          .split(" ")
-                          .join("")}`,
-                        {
-                          state: {
-                            item: item,
-                          },
-                        }
-                      ) & setShowSearchBar(true) & setSearchQuery("")
-                    }
-                    key={item._id}
-                    className="max-w-[600px] h-28 bg-gray-100 mb-3 flex items-center gap-3"
-                  >
-                    <img className="w-24" src={item.img} alt="productImg" />
-                    <div className="flex flex-col gap-1">
-                      <p className="font-semibold text-lg">{item.productName}</p>
-                      <p className="text-xs">{item.des}</p>
-                      <p className="text-sm">
-                        Price:{" "}
-                        <span className="text-primeColor font-semibold">
-                          ${item.price}
-                        </span>
-                      </p>
-                    </div>
+                <div
+                  onClick={() => {
+                    navigate(`/product/${item.NombreProducto.toLowerCase().split(" ").join("")}`, {
+                      state: {
+                        item: item,  // Aquí pasas el producto seleccionado como state
+                      },
+                    });
+                    setShowSearchBar(false);
+                    setSearchQuery("");
+                  }}
+                  key={item.ID_Producto}
+                  className="max-w-[600px] h-28 bg-gray-100 mb-3 flex items-center gap-3"
+                >
+                  <img className="w-24" src={item.ImgProducto} alt="productImg" />
+                  <div className="flex flex-col gap-1">
+                    <p className="font-semibold text-lg">{item.NombreProducto}</p>
+                    <p className="text-xs">{item.Descripcion}</p>
+                    <p className="text-sm">
+                      Precio:{" "}
+                      <span className="text-primeColor font-semibold">
+                        ${item.PrecioProducto}
+                      </span>
+                    </p>
                   </div>
-                ))}
+                </div>
+              ))}
+
+
               </div>
             )}
           </div>

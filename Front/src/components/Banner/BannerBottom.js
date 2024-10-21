@@ -14,7 +14,7 @@ const BannerBottom = () => {
           <span className="text-xl text-center w-6 ml-1">
             <MdLocalShipping />
           </span>
-          <p className="text-lightText text-base">Envío gratis</p>
+          <p className="text-lightText text-base">Envío gratis por compras mayores a 800.000COP</p>
         </div>
         <div className="flex md:w-auto items-center gap-2 w-72 shadow-sm hover:shadow-md duration-300">
           <span className="text-2xl text-center w-6">
