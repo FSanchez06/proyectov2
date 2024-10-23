@@ -19,7 +19,7 @@ const Shop = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://localhost:3002/products");
+        const response = await fetch("http://localhost:9000/api/productos"); // Cambia a tu puerto y ruta correcta
         const data = await response.json();
         setProducts(data); // Guardar los productos en el estado
         setFilteredProducts(data); // Inicialmente, todos los productos están visibles

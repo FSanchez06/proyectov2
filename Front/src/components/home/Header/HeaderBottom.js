@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";  // Importar Axios para hacer la petición a la API
 import { useSelector, useDispatch } from "react-redux";
 import { removeUserInfo, resetCart } from "../../../redux/orebiSlice"; // Importar acciones de Redux
+import Product from "../Products/Product"; // Importar el componente Product
 
 const HeaderBottom = () => {
   const products = useSelector((state) => state.orebiReducer.products);  // Estado global para los productos
@@ -94,34 +95,32 @@ const HeaderBottom = () => {
                 className={`w-full mx-auto h-96 bg-white top-16 absolute left-0 z-50 overflow-y-scroll shadow-2xl scrollbar-hide cursor-pointer`}
               >
                 {filteredProducts.map((item) => (
-                <div
-                  onClick={() => {
-                    navigate(`/product/${item.NombreProducto.toLowerCase().split(" ").join("")}`, {
-                      state: {
-                        item: item,  // Aquí pasas el producto seleccionado como state
-                      },
-                    });
-                    setShowSearchBar(false);
-                    setSearchQuery("");
-                  }}
-                  key={item.ID_Producto}
-                  className="max-w-[600px] h-28 bg-gray-100 mb-3 flex items-center gap-3"
-                >
-                  <img className="w-24" src={item.ImgProducto} alt="productImg" />
-                  <div className="flex flex-col gap-1">
-                    <p className="font-semibold text-lg">{item.NombreProducto}</p>
-                    <p className="text-xs">{item.Descripcion}</p>
-                    <p className="text-sm">
-                      Precio:{" "}
-                      <span className="text-primeColor font-semibold">
-                        ${item.PrecioProducto}
-                      </span>
-                    </p>
+                  <div
+                    onClick={() => {
+                      navigate(`/product/${item.NombreProducto.toLowerCase().split(" ").join("")}`, {
+                        state: {
+                          item: item,  // Aquí pasas el producto seleccionado como state
+                        },
+                      });
+                      setShowSearchBar(false);
+                      setSearchQuery("");
+                    }}
+                    key={item.ID_Producto}
+                    className="max-w-[600px] h-28 bg-gray-100 mb-3 flex items-center gap-3"
+                  >
+                    <img className="w-24" src={item.ImgProducto} alt="productImg" />
+                    <div className="flex flex-col gap-1">
+                      <p className="font-semibold text-lg">{item.NombreProducto}</p>
+                      <p className="text-xs">{item.Descripcion}</p>
+                      <p className="text-sm">
+                        Precio:{" "}
+                        <span className="text-primeColor font-semibold">
+                          ${item.PrecioProducto}
+                        </span>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
-
-
+                ))}
               </div>
             )}
           </div>
