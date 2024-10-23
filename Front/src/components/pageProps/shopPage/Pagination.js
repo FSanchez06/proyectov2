@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import Product from "../../home/Products/Product";
 
@@ -7,15 +7,15 @@ function Items({ currentItems }) {
     <>
       {currentItems &&
         currentItems.map((item) => (
-          <div key={item._id} className="w-full">
+          <div key={item.ID_Producto} className="w-full">
             <Product
-              _id={item._id}
-              img={item.img}
-              productName={item.productName}
-              price={item.price}
-              color={item.color}
-              badge={item.badge}
-              des={item.des}
+              _id={item.ID_Producto}
+              img={item.ImgProducto}
+              productName={item.NombreProducto}
+              price={item.PrecioProducto}
+              color={item.Color}
+              badge={item.Insignia}
+              des={item.Descripcion}
             />
           </div>
         ))}
@@ -23,18 +23,33 @@ function Items({ currentItems }) {
   );
 }
 
-const Pagination = ({ items, itemsPerPage }) => {
+const Pagination = ({ itemsPerPage }) => {
+  const [products, setProducts] = useState([]);
   const [itemOffset, setItemOffset] = useState(0);
   const [itemStart, setItemStart] = useState(1);
 
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch("http://localhost:9000/api/productos"); // Cambia a tu URL de API
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
   const endOffset = itemOffset + itemsPerPage;
-  const currentItems = items.slice(itemOffset, endOffset);
-  const pageCount = Math.ceil(items.length / itemsPerPage);
+  const currentItems = products.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(products.length / itemsPerPage);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % items.length;
+    const newOffset = (event.selected * itemsPerPage) % products.length;
     setItemOffset(newOffset);
-    setItemStart(newOffset);
+    setItemStart(newOffset + 1); // Ajustar para mostrar el inicio correcto
   };
 
   return (
@@ -56,8 +71,7 @@ const Pagination = ({ items, itemsPerPage }) => {
           activeClassName="bg-black text-white"
         />
         <p className="text-base font-normal text-lightText">
-          Productos del {itemStart === 0 ? 1 : itemStart} al {endOffset} de{" "}
-          {items.length}
+          Productos del {itemStart} al {endOffset} de {products.length}
         </p>
       </div>
     </div>

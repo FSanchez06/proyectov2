@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion"; 
 import Breadcrumbs from "../../components/pageProps/Breadcrumbs";
-import axios from "axios"; // Asegúrate de instalar Axios
+import axios from "axios";
 
 const Contact = () => {
   const location = useLocation();
@@ -66,13 +66,14 @@ const Contact = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:3002/messages", {
-        name: clientName,
-        email: email,
-        message: message,
+      const response = await axios.post("http://localhost:9000/api/mensajes", {
+        NombreUsuario: clientName,
+        EmailUsuario: email,
+        Mensaje: message,
+        ID_Usuario: 3, // Aquí debes cambiar el ID si es dinámico
       });
 
-      if (response.status === 201) {
+      if (response.status === 200 || response.status === 201) {
         setCompleted(true);
         setSuccessMsg(true);
         setClientName("");

@@ -68,27 +68,19 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <FooterListTitle title="Tienda" />
-          <ul className="flex flex-col gap-2">
+          <FooterListTitle title="Mas informacion" />
+          <ul className="flex flex-col gap-2 ">
             <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
-              Inicio
+              Tel: 310 601 5401
             </li>
             <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
-              Productos
-            </li>
-            <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
-              Sobre Nosotros
-            </li>
-            <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
-              Contacto
-            </li>
-            <li className="font-titleFont text-base text-lightText hover:text-black hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
-              Diseño
+              Correo: 
+              siena.confecciones@hotmail.com
             </li>
           </ul>
         </div>
 
-        <div className="col-span-2 flex flex-col items-center w-full px-4">
+        <div className="col-span-2 flex flex-col items-center w-full px-4 ml-10">
           <FooterListTitle title="Suscribete para recibir ofertas y mas!" />
           <div className="w-full">
             <p className="text-center mb-4">

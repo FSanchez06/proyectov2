@@ -13,6 +13,8 @@ INSERT INTO Rol (ID_Rol, TipoRol) VALUES
 (2, 'Empleado'),
 (3, 'Cliente');
 
+SELECT * FROM Rol;
+-- tabla usuario
 CREATE TABLE Usuario (
     ID_Usuario INT PRIMARY KEY AUTO_INCREMENT,
     Nombre VARCHAR(250),
@@ -28,8 +30,13 @@ CREATE TABLE Usuario (
     FOREIGN KEY (ID_Rol) REFERENCES Rol(ID_Rol) ON DELETE SET NULL -- Relación con la tabla Rol
 );
 
-SELECT * FROM Usuario;
+INSERT INTO Usuario (ID_Usuario, Nombre, Email, Contraseña, Telefono, Ciudad, CodPostal, Direccion, FotoPerfil, PublicId, ID_Rol) VALUES
+(NULL, 'Juan Pérez', 'juan.perez@example.com', '123456789', '3987654321', 'Cali', 222222, 'Calle 456', 'https://res.cloudinary.com/dkby10qht/image/upload/v1729215900/aehdylznezrjcajfvl4n.jpg', 'aehdylznezrjcajfvl4n', 1),
+(NULL, 'Felipe Sanchez AC', 'felipe.sanchez@example.com', '123456789', '3223812438', 'Bogota', 111111, 'Calle 80', 'https://res.cloudinary.com/dkby10qht/image/upload/v1729214643/slapvm4qyk9weplmis5j.jpg', 'slapvm4qyk9weplmis5j', 2),
+(NULL, 'Maria Contreras', 'maria.contreras@example.com', '123456789', '3106015401', 'Manizales', 333333, 'Calle 100', 'https://res.cloudinary.com/dkby10qht/image/upload/v1729214653/xswicmwn4idetmg5eesp.jpg', 'xswicmwn4idetmg5eesp', 3);
 
+SELECT * FROM Usuario;
+-- tabla banners 
 CREATE TABLE Banners (
 	ID_Banner INT PRIMARY KEY AUTO_INCREMENT,
     ImgBanner VARCHAR(300),
@@ -38,4 +45,75 @@ CREATE TABLE Banners (
     FOREIGN KEY (ID_Usuario) REFERENCES Usuario(ID_Usuario) ON DELETE CASCADE
 );
 
+INSERT INTO Banners (ID_Banner, ImgBanner, PublicId, ID_Usuario) VALUES
+(NULL, 'https://res.cloudinary.com/dkby10qht/image/upload/v1729253379/kumszcgpmuzlmcurbghs.webp', 'kumszcgpmuzlmcurbghs', 1),
+(NULL, 'https://res.cloudinary.com/dkby10qht/image/upload/v1729253294/kbsbhibjg8iinjpvzimb.webp', 'kbsbhibjg8iinjpvzimb', 1),
+(NULL, 'https://res.cloudinary.com/dkby10qht/image/upload/v1729253173/hcsbkg7slgogitirut7b.webp', 'hcsbkg7slgogitirut7b', 1);
+
+
 select * from Banners;
+
+-- tabla Images para el Home
+CREATE TABLE Images (
+	ID_Image INT PRIMARY KEY AUTO_INCREMENT,
+    ImageHome VARCHAR(300),
+    PublicId VARCHAR(250),
+    ID_Usuario INT,
+    FOREIGN KEY (ID_Usuario) REFERENCES Usuario(ID_Usuario) ON DELETE CASCADE
+);
+
+INSERT INTO Images (ID_Image, ImageHome, PublicId, ID_Usuario) VALUES
+(NULL, 'https://res.cloudinary.com/dkby10qht/image/upload/v1729297226/auay5wc12b2fmohcqb1b.jpg', 'auay5wc12b2fmohcqb1b', 1),
+(NULL, 'https://res.cloudinary.com/dkby10qht/image/upload/v1729298611/gv7ycwcj0ieivget89vj.jpg', 'uxudblitlfzwlhdrj4p9', 2),
+(NULL, 'https://res.cloudinary.com/dkby10qht/image/upload/v1729298130/uzrzserwriocexwnyze3.webp', 'qetayvsnezjabxnyww85', 1);
+
+SELECT * FROM Images;
+
+-- tabla Productos
+CREATE TABLE Productos (
+	ID_Producto INT PRIMARY KEY AUTO_INCREMENT,
+    ImgProducto VARCHAR(300),
+    PublicId VARCHAR(250),
+    NombreProducto VARCHAR(150),
+    PrecioProducto DECIMAL(15, 2),
+    Color VARCHAR(40),
+    Insignia BOOLEAN, /* 1 true 0 false*/
+    Descripcion VARCHAR(350),
+    ID_Usuario INT, -- Agregar ID_Usuario para relacionar con Usuario
+    FOREIGN KEY (ID_Usuario) REFERENCES Usuario(ID_Usuario) ON DELETE CASCADE
+);
+
+INSERT INTO Productos (ID_Producto, ImgProducto, PublicId, NombreProducto, PrecioProducto, Color, Insignia, Descripcion, ID_Usuario) VALUES
+(NULL, 'https://res.cloudinary.com/dkby10qht/image/upload/v1729306556/k4yneqwez2uxqkqitxty.png', 'k4yneqwez2uxqkqitxty', 'Gorra Ricardo Luevanos Collection', 100000.00, 'Beige', 1, 'Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la Ricardo Luevanos Collection Con material 100% poliéster Color Beige de Ricardo Luevanos Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.', 1),
+(NULL, 'https://res.cloudinary.com/dkby10qht/image/upload/v1729540439/tvkitzauhxvyqaarkabs.png', 'tvkitzauhxvyqaarkabs', 'Gorra World Series Collection', 120000.00, 'Verde', 1, 'Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la World Series Collection Con 97% algodón Verde de los New York Yankees Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.', 1),
+(NULL, 'https://res.cloudinary.com/dkby10qht/image/upload/v1729542082/u7fb9xt8ajpxedndxhpw.png', 'u7fb9xt8ajpxedndxhpw', 'Gorra World Series Collection', 150000.00, 'Blanco', 1, 'Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la World Series Collection Con 97% algodón Blanco de los New York Yankees Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.', 1),
+(NULL, 'https://res.cloudinary.com/dkby10qht/image/upload/v1729542238/giwv9ehjaurowxj2zhks.png', 'giwv9ehjaurowxj2zhks', 'Gorra Nfl Team Color Collection', 90000.00, 'Morado', 1, 'Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la Nfl Team Color Collection Con 100% algodón Morado de los Minnesota Vikings Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.', 1),
+(NULL, 'https://res.cloudinary.com/dkby10qht/image/upload/v1729542652/qhxjecoixmqf8qyj5iwl.png', 'qhxjecoixmqf8qyj5iwl', 'Gorra Cord Collection LOW PROFILE', 160000.00, 'Beige y Negro', 1, 'Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la Cord Collection Con 92% algodón de los New York Yankees Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.', 1),
+(NULL, 'https://res.cloudinary.com/dkby10qht/image/upload/v1729542913/au6zfcw9ntyyw7oo0qir.png', 'au6zfcw9ntyyw7oo0qir', 'Gorra Visa Cash App RB Flawles', 60000.00, 'Azul', 1, 'Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la Flawless Vcarbs Collection Con material 100% Algodón Color Azul de Visa Cash Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.', 1),
+(NULL, 'https://res.cloudinary.com/dkby10qht/image/upload/v1729543068/ajvlnqlgzg4xvpqdlg5i.png', 'ajvlnqlgzg4xvpqdlg5i', 'Gorra Monochrome Collection', 100000.00, 'Negro', 1, 'Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la Monochrome Collection Con 100% algodón Negro de los New York Yankees Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.', 1),
+(NULL, 'https://res.cloudinary.com/dkby10qht/image/upload/v1729543435/jabpgh9amwqyfjlx2bgn.png', 'jabpgh9amwqyfjlx2bgn', 'Gorro M Patch Beanie Color Gris', 90000.00, 'Gris', 1, 'Le damos la bienvenida al gorro Patch Beanie, tu mejor aliado para protegerte en tus aventuras a bajas temperaturas. Fabricado principalmente en materiales reciclados.', 1),
+(NULL, 'https://res.cloudinary.com/dkby10qht/image/upload/v1729543677/s9sqqach5mnkz99jl4as.png', 's9sqqach5mnkz99jl4as', 'Gorro Cochamo Beanie Unisex-Black', 80000.00, 'Negro', 0, 'Te presentamos nuestro beanie Cochamó, una opción sostenible, cálida y cómoda para mantenerte abrigado con estilo.', 1),
+(NULL, 'https://res.cloudinary.com/dkby10qht/image/upload/v1729543809/ms6fbujgoezs8kzmegdb.png', 'ms6fbujgoezs8kzmegdb', 'Gorra Ac Performance color Negro', 100000.00, 'Negro', 0, 'Completa tu outfit y sube de nivel tu estilo con esta gorra de los Chicago White Sox. Compra ahora tú Gorra Chicago White Sox.', 1),
+(NULL, 'https://res.cloudinary.com/dkby10qht/image/upload/v1729543906/ubzjtas33n3exznrcyoi.png', 'ubzjtas33n3exznrcyoi', 'Gorra Seasonal Infill Collection', 100000.00, 'Gris', 0, 'Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la Seasonal Infill Collection Con 100% algodón Gris de los Los Angeles Dodgers Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.', 1),
+(NULL, 'https://res.cloudinary.com/dkby10qht/image/upload/v1729544051/re7jy1d9hdk4beajmpvb.png', 're7jy1d9hdk4beajmpvb', 'Gorra Ocean Icon Collection', 50000.00, 'Blanco', 0, 'Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la Ocean Icon Collection Con 100% poliéster Reciclado Blanco de los New York Yankees Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.', 1),
+(NULL, 'https://res.cloudinary.com/dkby10qht/image/upload/v1729544170/wlefqrgxcxys0recatwt.png', 'wlefqrgxcxys0recatwt', 'Gorra Pinstripe Collection color Gris', 50000.00, 'Blanco y Negro', 0, 'Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la Pinstripe Collection Con Corona y medios 100% poliéster Negro de los New York Yankees.', 1),
+(NULL, 'https://res.cloudinary.com/dkby10qht/image/upload/v1729544298/oeamoxjjx6qyf3nsithf.png', 'oeamoxjjx6qyf3nsithf', 'Gorra Camo Collection Militar', 40000.00, 'Beige', 0, 'Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la Camo Collection Con 100% poliéster Negro de los New York Yankees Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.', 1),
+(NULL, 'https://res.cloudinary.com/dkby10qht/image/upload/v1729545070/gs2cw6ngslrl7hvd8b60.png', 'gs2cw6ngslrl7hvd8b60', 'Gorra Washed Collection color Naranja', 40000.00, 'Naranja', 0, 'Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la Washed Collection Con 100% algodón Negro de los New York Yankees Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.', 1),
+(NULL, 'https://res.cloudinary.com/dkby10qht/image/upload/v1729545184/fztcswdqftnj0b1okzey.png', 'fztcswdqftnj0b1okzey', 'Gorra World Series Collection', 140000.00, 'Blanco', 0, 'Completa tu outfit y sube de nivel tu estilo con Esta Gorra de la World Series Collection Con 100% algodón Blanco de los Los Angeles Dodgers Y Se Completa Con Paneles Estructurados Que Garantizan Un Acabado Cómodo.', 1);
+
+
+SELECT * FROM Productos;
+
+CREATE TABLE Mensajes (
+	ID_mensaje INT PRIMARY KEY AUTO_INCREMENT,
+    NombreUsuario VARCHAR(200),
+    EmailUsuario VARCHAR(200),
+    Mensaje VARCHAR(350),
+    ID_Usuario INT, -- Agregar ID_Usuario para relacionar con Usuario
+    FOREIGN KEY (ID_Usuario) REFERENCES Usuario(ID_Usuario) ON DELETE CASCADE
+);
+
+SELECT * FROM Mensajes;
+
+
+

@@ -14,6 +14,7 @@ const usuarioRoutes = require("./routes/Usuarioroutes");
 const bannersRoutes = require("./routes/BannersRoutes");
 const imagesRoutes = require("./routes/ImagesRoutes");
 const productosRoutes = require("./routes/ProductsRoutes");
+const mensajeRoutes = require("./routes/MensajeRoutes");
 
 const app = express();
 app.set("port", process.env.PORT || 9000);
@@ -50,6 +51,7 @@ app.use("/api", usuarioRoutes); // Rutas para usuarios
 app.use("/api", bannersRoutes); //Rutas para banners
 app.use("/api", imagesRoutes); //Rutas para imagenes home
 app.use("/api", productosRoutes); //Rutas para productos
+app.use("/api", mensajeRoutes); //Rutas para mensajes
 
 // Iniciar el servidor
 app.listen(app.get("port"), () => {
