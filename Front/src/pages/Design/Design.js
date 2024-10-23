@@ -196,28 +196,85 @@ function Cap(props) {
 
 function Picker() {
   const snap = useSnapshot(state);
-  
+
+  // Estado para manejar la página actual
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 7;
+
+  // Títulos de las partes
+  const titles = {
+    billd1: 'Franja 1',
+    billd2: 'Franja 2',
+    billd3: 'Franja 3',
+    billd4: 'Franja 4',
+    billd5: 'Franja 5',
+    contornbase: 'Contorno Base',
+    interiorcontorno: 'Interior Contorno',
+    eyeleft1: 'Ojal 1',
+    eyeright1: 'Ojal 2',
+    eyeleft2: 'Ojal 3',
+    eyerigth2: 'Ojal 4',
+    bill: 'Visera',
+    body: 'Cuerpo',
+    central: 'Boton central',
+    
+  };
+
+  // Manejar cambio de color
   const handleColorChange = (part) => (event) => {
     const newColor = event.target.value;
-    state.items[part] = newColor; // Update the color in state
+    state.items[part] = newColor; // Actualiza el color en el estado
+  };
+
+  // Particionar los items en páginas, excluyendo la última opción
+  const colorParts = Object.keys(snap.items).slice(0, -1); // Excluir la última opción
+  const totalPages = Math.ceil(colorParts.length / itemsPerPage);
+  const currentItems = colorParts.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+  // Funciones para cambiar de página
+  const goToNextPage = () => {
+    setCurrentPage((prevPage) => (prevPage < totalPages ? prevPage + 1 : prevPage));
+  };
+
+  const goToPrevPage = () => {
+    setCurrentPage((prevPage) => (prevPage > 1 ? prevPage - 1 : prevPage));
   };
 
   return (
-    <div className="picker">
-      {Object.keys(snap.items).map((part) => (
-        <div key={part}>
-          <label>{part}</label>
-          <input 
-            type="color" 
-            value={snap.items[part]} 
-            onChange={handleColorChange(part)} 
+    <div className="flex flex-col space-y-4 p-4 bg-gray-50 shadow-lg rounded-lg">
+      {currentItems.map((part) => (
+        <div key={part} className="flex items-center justify-between">
+          <span className="mr-4 text-gray-700 font-medium">{titles[part]}</span>
+          <input
+            type="color"
+            value={snap.items[part]}
+            onChange={handleColorChange(part)}
+            className="h-8 w-20 border-2 border-gray-300 rounded-md cursor-pointer transition duration-200 hover:shadow-lg hover:border-gray-400 focus:outline-none"
           />
         </div>
       ))}
-      <div>Selected Part: {snap.current}</div>
+
+      {/* Paginación */}
+      <div className="flex justify-between mt-4">
+        <button
+          onClick={goToPrevPage}
+          disabled={currentPage === 1}
+          className={`px-4 py-2 bg-black text-white rounded mr-4 ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-800'}`}
+        >
+          Anterior
+        </button>
+        <button
+          onClick={goToNextPage}
+          disabled={currentPage === totalPages}
+          className={`px-4 py-2 bg-black text-white rounded ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-800'}`}
+        >
+          Siguiente
+        </button>
+      </div>
     </div>
   );
 }
+
 
 
 export default Desing;
