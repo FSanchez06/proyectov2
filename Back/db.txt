@@ -35,6 +35,8 @@ INSERT INTO Usuario (ID_Usuario, Nombre, Email, Contraseña, Telefono, Ciudad, C
 (NULL, 'Felipe Sanchez AC', 'felipe.sanchez@example.com', '123456789', '3223812438', 'Bogota', 111111, 'Calle 80', 'https://res.cloudinary.com/dkby10qht/image/upload/v1729214643/slapvm4qyk9weplmis5j.jpg', 'slapvm4qyk9weplmis5j', 2),
 (NULL, 'Maria Contreras', 'maria.contreras@example.com', '123456789', '3106015401', 'Manizales', 333333, 'Calle 100', 'https://res.cloudinary.com/dkby10qht/image/upload/v1729214653/xswicmwn4idetmg5eesp.jpg', 'xswicmwn4idetmg5eesp', 3);
 
+
+
 SELECT * FROM Usuario;
 -- tabla banners 
 CREATE TABLE Banners (
