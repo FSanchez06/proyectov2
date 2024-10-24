@@ -1,10 +1,7 @@
-// proyecto/Front/src/pages/Account/SignIn.js
-
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
-import bcrypt from "bcryptjs";
 import Header from "../../components/home/Header/Header";
 import Footer from "../../components/home/Footer/Footer";
 import FooterBottom from "../../components/home/Footer/FooterBottom";
@@ -21,10 +18,7 @@ const SignIn = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // Validar formato de email
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-  // Validar longitud mínima de contraseña
   const isValidPassword = (password) => password.length >= 6;
 
   const handleEmail = (e) => {
@@ -42,6 +36,7 @@ const SignIn = () => {
     setErrorMsg("");
     setSuccessMsg("");
 
+    // Validación de entrada
     if (!email) {
       setErrEmail("Ingrese su correo electrónico");
       return;
@@ -60,27 +55,49 @@ const SignIn = () => {
 
     try {
       setLoading(true);
-      // Petición para obtener usuarios
-      const response = await fetch("http://localhost:3002/users");
-      const users = await response.json();
-      const user = users.find((user) => user.email === email);
+      
+      // Hacer la petición de login directamente al endpoint correcto
+      const response = await fetch("http://localhost:9000/api/usuarios/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password
+        }),
+      });
 
-      if (!user) throw new Error("No se encontró una cuenta con este correo electrónico");
+      if (!response.ok) {
+        throw new Error(await response.text());
+      }
 
-      // Comparar la contraseña encriptada
-      const isPasswordValid = await bcrypt.compare(password, user.password);
-      if (!isPasswordValid) throw new Error("La contraseña es incorrecta");
+      const userData = await response.json();
+      
+      // Guardar la información del usuario en Redux
+      dispatch(addUserInfo({
+        id: userData.ID_Usuario,
+        email: userData.Email,
+        nombre: userData.Nombre,
+        telefono: userData.Telefono,
+        ciudad: userData.Ciudad,
+        codPostal: userData.CodPostal,
+        direccion: userData.Direccion,
+        fotoPerfil: userData.FotoPerfil,
+        rol: userData.ID_Rol
+      }));
 
-      setSuccessMsg("Login Exitoso!");
-      dispatch(addUserInfo(user)); // Guardar la información del usuario en el estado global
+      setSuccessMsg("¡Inicio de sesión exitoso!");
       setLoading(false);
 
+      // Redirigir después de un breve delay
       setTimeout(() => {
-        navigate("/"); // Redirigir a la página de inicio
-      }, 2000);
+        navigate("/");
+      }, 1500);
+
     } catch (error) {
       setLoading(false);
-      setErrorMsg(error.message);
+      setErrorMsg(error.message || "Error al iniciar sesión");
     }
   };
 
@@ -99,7 +116,7 @@ const SignIn = () => {
               transition={{ duration: 0.5 }}
             >
               <motion.div
-                className="bg-white p-10 rounded-lg shadow-lg text-center w-[400px] h-[300px] flex flex-col items-center justify-center"
+                className="bg-white p-10 rounded-lg shadow-lg text-center w-96 h-72 flex flex-col items-center justify-center"
                 initial={{ scale: 0.5 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0 }}
@@ -113,25 +130,11 @@ const SignIn = () => {
                     className="text-green-500 text-3xl font-bold"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
                     transition={{ duration: 0.5 }}
                   >
                     ✔
                   </motion.div>
                 </motion.div>
-                {loading && (
-                  <motion.div
-                    className="flex justify-center items-center"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <motion.div
-                      className="w-16 h-16 border-8 border-t-8 border-black border-solid rounded-full animate-spin"
-                      style={{ borderTopColor: "transparent" }}
-                    />
-                  </motion.div>
-                )}
               </motion.div>
             </motion.div>
           )}
@@ -146,7 +149,7 @@ const SignIn = () => {
               transition={{ duration: 0.5 }}
             >
               <motion.div
-                className="bg-white p-10 rounded-lg shadow-lg text-center w-[400px] h-[300px] flex flex-col items-center justify-center"
+                className="bg-white p-10 rounded-lg shadow-lg text-center w-96 h-72 flex flex-col items-center justify-center"
                 initial={{ scale: 0.5 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0 }}
@@ -154,25 +157,17 @@ const SignIn = () => {
               >
                 <p className="text-lg font-semibold mb-6 text-red-500">{errorMsg}</p>
                 <motion.div
-                  className="flex justify-center items-center"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  exit={{ scale: 0 }}
-                  transition={{ duration: 0.5 }}
+                  className="w-16 h-16 border-4 border-red-500 rounded-full flex items-center justify-center"
                 >
-                  <div className="w-16 h-16 border-4 border-red-500 rounded-full flex items-center justify-center">
-                    <motion.div
-                      className="text-red-500 text-4xl font-bold"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      ✖
-                    </motion.div>
-                  </div>
+                  <motion.div
+                    className="text-red-500 text-4xl font-bold"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    ✖
+                  </motion.div>
                 </motion.div>
-
                 <button
                   onClick={() => setErrorMsg("")}
                   className="mt-6 bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition duration-300"
@@ -191,12 +186,15 @@ const SignIn = () => {
                   Iniciar Sesión
                 </h1>
                 <div className="flex flex-col gap-3">
-                  <div className="flex flex-col gap-.5">
-                    <p className="font-titleFont text-base font-semibold text-gray-600">Correo Electrónico</p>
+                  {/* Campo de email */}
+                  <div className="flex flex-col gap-0.5">
+                    <p className="font-titleFont text-base font-semibold text-gray-600">
+                      Correo Electrónico
+                    </p>
                     <input
                       onChange={handleEmail}
                       value={email}
-                      className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
+                      className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border border-gray-400 outline-none"
                       type="email"
                       placeholder="Ingrese su correo electrónico"
                     />
@@ -208,14 +206,17 @@ const SignIn = () => {
                     )}
                   </div>
 
-                  <div className="flex flex-col gap-.5">
-                    <p className="font-titleFont text-base font-semibold text-gray-600">Contraseña</p>
+                  {/* Campo de contraseña */}
+                  <div className="flex flex-col gap-0.5">
+                    <p className="font-titleFont text-base font-semibold text-gray-600">
+                      Contraseña
+                    </p>
                     <input
                       onChange={handlePassword}
                       value={password}
-                      className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
+                      className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border border-gray-400 outline-none"
                       type="password"
-                      placeholder="Ingrese su Contraseña"
+                      placeholder="Ingrese su contraseña"
                     />
                     {errPassword && (
                       <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -225,16 +226,24 @@ const SignIn = () => {
                     )}
                   </div>
 
+                  {/* Botón de inicio de sesión */}
                   <button
                     type="submit"
-                    className="bg-primeColor hover:bg-black text-gray-200 hover:text-white cursor-pointer w-full text-base font-medium h-10 rounded-md duration-300"
+                    disabled={loading}
+                    className={`bg-primeColor hover:bg-black text-gray-200 hover:text-white cursor-pointer w-full text-base font-medium h-10 rounded-md duration-300 ${
+                      loading ? "opacity-50 cursor-not-allowed" : ""
+                    }`}
                   >
-                    Ingresar
+                    {loading ? "Iniciando sesión..." : "Ingresar"}
                   </button>
+
+                  {/* Link de registro */}
                   <p className="text-sm text-center font-titleFont font-medium">
                     ¿No tienes cuenta?{" "}
                     <Link to="/signup">
-                      <span className="hover:text-blue-600 duration-300">Regístrate aquí</span>
+                      <span className="hover:text-blue-600 duration-300">
+                        Regístrate aquí
+                      </span>
                     </Link>
                   </p>
                 </div>

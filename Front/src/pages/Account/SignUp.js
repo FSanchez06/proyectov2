@@ -49,107 +49,138 @@ const SignUp = () => {
   };
 
   // Manejo del registro
-  const handleSignUp = async (e) => {
-    e.preventDefault();
+const handleSignUp = async (e) => {
+  e.preventDefault();
 
-    // Limpiar mensajes anteriores
-    setErrorMsg("");
-    setSuccessMsg("");
-    setErrClientName("");
-    setErrEmail("");
-    setErrPhone("");
-    setErrPassword("");
-    setErrConfirmPassword("");
-    setErrAddress("");
-    setErrCity("");
-    setErrZip("");
+  // Limpiar mensajes anteriores
+  setErrorMsg("");
+  setSuccessMsg("");
+  setErrClientName("");
+  setErrEmail("");
+  setErrPhone("");
+  setErrPassword("");
+  setErrConfirmPassword("");
+  setErrAddress("");
+  setErrCity("");
+  setErrZip("");
 
-    if (checked) {
-      // Validaciones
-      if (!clientName) setErrClientName("Ingrese su nombre completo");
-      if (!email) setErrEmail("Ingrese su correo electrónico");
-      else if (!EmailValidation(email)) setErrEmail("Ingrese un correo electrónico válido");
-      if (!phone) setErrPhone("Ingrese su número de teléfono");
-      else if (!PhoneValidation(phone)) setErrPhone("El número de teléfono debe ser de 10 dígitos");
-      if (!password) setErrPassword("Cree una contraseña");
-      else if (password.length < 6) setErrPassword("La contraseña debe tener al menos 6 caracteres");
-      if (!confirmPassword) setErrConfirmPassword("Confirme su contraseña");
-      else if (password !== confirmPassword) setErrConfirmPassword("Las contraseñas no coinciden");
-      if (!address) setErrAddress("Ingrese su dirección");
-      if (!city) setErrCity("Ingrese el nombre de su ciudad");
-      if (!zip) setErrZip("Ingrese el código postal de su área");
-      else if (!ZipValidation(zip)) setErrZip("El código postal debe tener 6 dígitos");
+  
+    // Validaciones
+    let isValid = true;
 
-      // Si todas las validaciones son correctas
-      if (
-        clientName &&
-        email &&
-        EmailValidation(email) &&
-        phone &&
-        PhoneValidation(phone) &&
-        password &&
-        password.length >= 6 &&
-        confirmPassword &&
-        password === confirmPassword &&
-        address &&
-        city &&
-        zip &&
-        ZipValidation(zip)
-      ) {
-        setIsLoading(true); // Mostrar icono de carga
+    if (!clientName) {
+      setErrClientName("Ingrese su nombre completo");
+      isValid = false;
+    }
 
-        // Encriptar la contraseña usando bcrypt
-        const hashedPassword = await bcrypt.hash(password, 10); // Salt rounds = 10
+    if (!email) {
+      setErrEmail("Ingrese su correo electrónico");
+      isValid = false;
+    } else if (!EmailValidation(email)) {
+      setErrEmail("Ingrese un correo electrónico válido");
+      isValid = false;
+    }
 
-        // Petición POST a la API, incluyendo el rol "Cliente"
-        const newUser = {
-          name: clientName,
-          email,
-          phone,
-          password: hashedPassword, // Usar la contraseña encriptada
-          address,
-          city,
-          zip,
-          role: "Cliente" // Añadir el rol "Cliente"
-        };
+    if (!phone) {
+      setErrPhone("Ingrese su número de teléfono");
+      isValid = false;
+    } else if (!PhoneValidation(phone)) {
+      setErrPhone("El número de teléfono debe ser de 10 dígitos");
+      isValid = false;
+    }
 
-        try {
-          const response = await fetch("http://localhost:3002/users", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(newUser),
+    if (!password) {
+      setErrPassword("Cree una contraseña");
+      isValid = false;
+    } else if (password.length < 6) {
+      setErrPassword("La contraseña debe tener al menos 6 caracteres");
+      isValid = false;
+    }
+
+    if (!confirmPassword) {
+      setErrConfirmPassword("Confirme su contraseña");
+      isValid = false;
+    } else if (password !== confirmPassword) {
+      setErrConfirmPassword("Las contraseñas no coinciden");
+      isValid = false;
+    }
+
+    if (!address) {
+      setErrAddress("Ingrese su dirección");
+      isValid = false;
+    }
+
+    if (!city) {
+      setErrCity("Ingrese el nombre de su ciudad");
+      isValid = false;
+    }
+
+    if (!zip) {
+      setErrZip("Ingrese el código postal de su área");
+      isValid = false;
+    } else if (!ZipValidation(zip)) {
+      setErrZip("El código postal debe tener 6 dígitos");
+      isValid = false;
+    }
+
+    if (!checked) {
+      setErrorMsg("Debe aceptar los términos y condiciones.");
+      isValid = false;
+    }
+
+    // Solo si todas las validaciones son correctas
+    if (isValid) {
+      setIsLoading(true); // Mostrar icono de carga
+
+      try {
+          // Encriptar la contraseña
+          const hashedPassword = await bcrypt.hash(password, 10);
+
+          // Petición POST a la API
+          const newUser = {
+              Nombre: clientName,
+              Email: email,
+              Telefono: phone,
+              Contraseña: hashedPassword,
+              Direccion: address,
+              Ciudad: city,
+              CodPostal: zip,
+              ID_Rol: 3, // Rol de cliente
+          };
+
+          const response = await fetch("http://localhost:9000/api/usuarios", {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json",
+              },
+              body: JSON.stringify(newUser),
           });
 
+          // Manejo adecuado del código de estado
           if (response.ok) {
-            const data = await response.json();
-            setIsLoading(false);
-            setSuccessMsg(`Hola ${data.name}, se ha registrado exitosamente.`);
-            
-            // Limpiar campos
-            setClientName("");
-            setEmail("");
-            setPhone("");
-            setPassword("");
-            setConfirmPassword("");
-            setAddress("");
-            setCity("");
-            setZip("");
+              const data = await response.json();
+              setSuccessMsg(`Hola ${data.Nombre}, se ha registrado exitosamente.`);
+              
+              // Limpiar los campos del formulario
+              setClientName("");
+              setEmail("");
+              setPhone("");
+              setPassword("");
+              setConfirmPassword("");
+              setAddress("");
+              setCity("");
+              setZip("");
           } else {
-            throw new Error("Error al registrar. Inténtelo de nuevo.");
+              const errorData = await response.json();
+              setErrorMsg(errorData.message || "Error al registrar. Inténtelo de nuevo.");
           }
-        } catch (error) {
-          setIsLoading(false);
-          setErrorMsg(error.message);
-        }
-      } else {
-        setErrorMsg("Por favor, complete todos los campos correctamente.");
+      } catch (error) {
+          setErrorMsg("Error en el servidor. Inténtelo de nuevo.");
+      } finally {
+          setIsLoading(false); // Ocultar icono de carga
       }
-    } else {
-      setErrorMsg("Debe aceptar los términos y condiciones.");
-    }
-  };
+  }
+};
 
   // Función para reiniciar el formulario después de un error
   const handleRetry = () => {
@@ -161,46 +192,47 @@ const SignUp = () => {
       <Header />
       <div className="w-full h-screen flex items-center justify-center">
         <div className="mt-40 w-full lgl:w-[500px] h-full flex flex-col">
-        <h1 className="font-titleFont underline underline-offset-4 decoration-[1px] font-semibold text-2xl mdl:text-3xl mb-4">
-          Crear cuenta
-        </h1>
+          <h1 className="font-titleFont underline underline-offset-4 decoration-[1px] font-semibold text-2xl mdl:text-3xl mb-4">
+            Crear cuenta
+          </h1>
           {/* Modal de éxito */}
-          {successMsg && !isLoading && (
+{successMsg && (
+    <motion.div
+        className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+    >
+        <motion.div
+            className="bg-white p-10 rounded-lg shadow-lg text-center w-[400px] h-[300px] flex flex-col items-center justify-center"
+            initial={{ scale: 0.5 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.5 }}
+        >
             <motion.div
-              className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-            >
-              <motion.div
-                className="bg-white p-10 rounded-lg shadow-lg text-center w-[400px] h-[300px] flex flex-col items-center justify-center"
+                className="w-16 h-16 border-4 border-green-500 rounded-full flex items-center justify-center"
                 initial={{ scale: 0.5 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.5 }}
-              >
+            >
                 <motion.div
-                  className="w-16 h-16 border-4 border-green-500 rounded-full flex items-center justify-center"
-                  initial={{ scale: 0.5 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <motion.div
                     className="text-green-500 text-4xl font-bold"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.3 }}
-                  >
+                >
                     ✓
-                  </motion.div>
                 </motion.div>
-                <p className="text-lg font-semibold mt-6">{successMsg}</p>
-                <Link to="/signin">
-                  <button className="mt-6 bg-primeColor text-white px-4 py-2 rounded-md hover:bg-black transition duration-300">
-                    Iniciar sesión
-                  </button>
-                </Link>
-              </motion.div>
             </motion.div>
-          )}
+            <p className="text-lg font-semibold mt-6">{successMsg}</p>
+            <Link to="/signin">
+                <button className="mt-6 bg-primeColor text-white px-4 py-2 rounded-md hover:bg-black transition duration-300">
+                    Iniciar sesión
+                </button>
+            </Link>
+        </motion.div>
+    </motion.div>
+)}
+
 
           {/* Modal de carga */}
           {isLoading && (
@@ -223,44 +255,44 @@ const SignUp = () => {
 
           {/* Modal de error */}
           {errorMsg && (
+    <motion.div
+        className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+    >
+        <motion.div
+            className="bg-white p-10 rounded-lg shadow-lg text-center w-[400px] h-[300px] flex flex-col items-center justify-center"
+            initial={{ scale: 0.5 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.5 }}
+        >
+            <p className="text-lg font-semibold mb-6 text-red-500">{errorMsg}</p>
             <motion.div
-              className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-            >
-              <motion.div
-                className="bg-white p-10 rounded-lg shadow-lg text-center w-[400px] h-[300px] flex flex-col items-center justify-center"
-                initial={{ scale: 0.5 }}
+                className="flex justify-center items-center"
+                initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.5 }}
-              >
-                <p className="text-lg font-semibold mb-6 text-red-500">{errorMsg}</p>
-                <motion.div
-                  className="flex justify-center items-center"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <div className="w-16 h-16 border-4 border-red-500 rounded-full flex items-center justify-center">
+            >
+                <div className="w-16 h-16 border-4 border-red-500 rounded-full flex items-center justify-center">
                     <motion.div
-                      className="text-red-500 text-4xl font-bold"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.3 }}
+                        className="text-red-500 text-4xl font-bold"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
                     >
-                      ✖
+                        ✖
                     </motion.div>
-                  </div>
-                </motion.div>
-                <button
-                  onClick={handleRetry}
-                  className="mt-6 bg-primeColor text-white px-4 py-2 rounded-md hover:bg-black transition duration-300"
-                >
-                  Intentar de nuevo
-                </button>
-              </motion.div>
+                </div>
             </motion.div>
-          )}
+            <button
+                onClick={handleRetry}
+                className="mt-6 bg-primeColor text-white px-4 py-2 rounded-md hover:bg-black transition duration-300"
+            >
+                Intentar de nuevo
+            </button>
+        </motion.div>
+    </motion.div>
+)}
 
           {/* Formulario */}
           {!successMsg && !isLoading && (
