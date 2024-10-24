@@ -2,12 +2,12 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Banners from './Sections/Banners';
 import Customizations from './Sections/Customizations';
-import Images from './Sections/Images';
-import Messages from './Sections/Messages';
+import Images from './Sections/Imagenes';
+import Messages from './Sections/Mensajes';
 import Orders from './Sections/Orders';
-import Products from './Sections/Products';
+import Products from './Sections/Productos';
 import Sells from './Sections/Sells';
-import Users from './Sections/Users';
+import Users from './Sections/Usuarios';
 
 const DashboardComponent = () => {
   const userInfo = useSelector(state => state.orebiReducer.userInfo[0]);

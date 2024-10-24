@@ -38,7 +38,7 @@ cloudinary.config({
 // Middlewares
 app.use(myconn(mysql, dbOptions, 'single')); // Conexión a la base de datos
 app.use(express.json()); // Permite recibir datos en formato JSON
-app.use(fileUpload({ useTempFiles: true, tempFileDir: path.join(__dirname, 'tmp/') })); // Manejo de archivos subidos
+app.use(fileUpload({ useTempFiles: true, tempFileDir: path.join(__dirname, 'tmp/') }));
 app.use(cors());
 
 // Rutas

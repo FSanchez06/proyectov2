@@ -2,6 +2,7 @@ const cloudinary = require("cloudinary").v2;
 const bcrypt = require("bcryptjs");
 
 module.exports = {
+    // Actualización de la foto de perfil
     updateProfilePic: async (req, res) => {
         const userId = req.params.id;
 
@@ -26,11 +27,12 @@ module.exports = {
                     await cloudinary.uploader.destroy(oldPublicId);
                 }
 
-                // Subir la nueva imagen
+                // Subir la nueva imagen a Cloudinary
                 const result = await cloudinary.uploader.upload(profilePic.tempFilePath);
                 const newProfilePicUrl = result.secure_url;
                 const newPublicId = result.public_id;
 
+                // Actualizar la base de datos con la nueva foto y PublicId
                 const updateQuery = "UPDATE Usuario SET FotoPerfil = ?, PublicId = ? WHERE ID_Usuario = ?";
                 await conn.query(updateQuery, [newProfilePicUrl, newPublicId, userId]);
 
@@ -121,15 +123,40 @@ module.exports = {
 
     updateUsuario: (req, res) => {
         const userId = req.params.id;
-        const updatedUser = req.body;
+        const { Nombre, Email, Telefono, Ciudad, CodPostal, Direccion, ID_Rol } = req.body;
+    
+        // Validación básica: Asegurarse de que los campos esenciales no estén vacíos
+        if (!Nombre || !Email || !Telefono || !Ciudad || !CodPostal || !Direccion || !ID_Rol) {
+            return res.status(400).send("Todos los campos obligatorios deben estar completos.");
+        }
+    
+        // Crear el objeto con los datos que deben actualizarse
+        const updatedUser = { 
+            Nombre, 
+            Email, 
+            Telefono, 
+            Ciudad, 
+            CodPostal, 
+            Direccion, 
+            ID_Rol 
+        };
+    
+        // Conexión a la base de datos y actualización del usuario
         req.getConnection((err, conn) => {
-            if (err) return res.status(500).send("Error de conexión a la base de datos");
-
+            if (err) {
+                console.error("Error de conexión a la base de datos:", err);
+                return res.status(500).send("Error de conexión a la base de datos");
+            }
+    
             conn.query("UPDATE Usuario SET ? WHERE ID_Usuario = ?", [updatedUser, userId], (err) => {
-                if (err) return res.status(500).send("Error al actualizar el usuario");
-
+                if (err) {
+                    console.error("Error al actualizar el usuario:", err);
+                    return res.status(500).send("Error al actualizar el usuario");
+                }
+    
                 res.send("Usuario actualizado correctamente");
             });
         });
     }
+    
 };

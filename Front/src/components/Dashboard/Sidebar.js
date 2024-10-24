@@ -4,27 +4,27 @@ import { FaTachometerAlt, FaShoppingCart, FaUsers, FaUser, FaBox, FaCog } from '
 const Sidebar = () => {
 	return (
 		<div className="bg-gray-100 text-gray-900 h-screen px-4 fixed w-16 md:w-64 border-r border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-white">
-			<h1 className='text-2xl font-bold hidden md:block mt-4 text-center italic'>CWY Shop</h1>
+			<h1 className='text-2xl font-bold hidden md:block mt-4 text-center italic'>Siena Confecciones Dashboard</h1>
 			<ul className='flex flex-col mt-5 text-xl'>
 				<li className='flex items-center py-3 px-2 space-x-4 hover:rounded hover:cursor-pointer hover:bg-blue-600 hover:text-white'>
 					<FaTachometerAlt />
-					<span className='hidden md:inline'>Dashboard</span>
+					<span className='hidden md:inline'>Usuarios</span>
 				</li>
 				<li className="flex items-center py-3 px-2 space-x-4 hover:rounded hover:cursor-pointer hover:text-white hover:bg-blue-600">
 					<FaShoppingCart />
-					<span className="hidden md:inline ">Orders</span>
+					<span className="hidden md:inline ">Productos</span>
 				</li>
 				<li className="flex items-center py-3 px-2 space-x-4 hover:rounded hover:cursor-pointer hover:text-white hover:bg-blue-600">
 					<FaUsers />
-					<span className="hidden md:inline ">Customers</span>
+					<span className="hidden md:inline ">Banners</span>
 				</li>
 				<li className="flex items-center py-3 px-2 space-x-4 hover:rounded hover:cursor-pointer hover:text-white hover:bg-blue-600">
 					<FaUser />
-					<span className="hidden md:inline ">Users</span>
+					<span className="hidden md:inline ">Imagenes</span>
 				</li>
 				<li className="flex items-center py-3 px-2 space-x-4 hover:rounded hover:cursor-pointer hover:text-white hover:bg-blue-600">
 					<FaBox />
-					<span className="hidden md:inline ">Products</span>
+					<span className="hidden md:inline ">Mensajes</span>
 				</li>
 				<li className="flex items-center py-3 px-2 space-x-4 hover:rounded hover:cursor-pointer hover:text-white hover:bg-blue-600">
 					<FaCog />
